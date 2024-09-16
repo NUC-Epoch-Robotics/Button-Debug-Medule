@@ -1,7 +1,7 @@
 butter-debug-module\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
 butter-debug-module\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\croutine.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-butter-debug-module\croutine.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\croutine.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\croutine.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\croutine.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 butter-debug-module\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

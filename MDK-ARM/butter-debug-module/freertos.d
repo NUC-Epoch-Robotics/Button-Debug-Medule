@@ -1,7 +1,7 @@
 butter-debug-module\freertos.o: ../Core/Src/freertos.c
 butter-debug-module\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\freertos.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-butter-debug-module\freertos.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\freertos.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\freertos.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 butter-debug-module\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
