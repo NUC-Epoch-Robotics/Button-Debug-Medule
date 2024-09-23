@@ -34,3 +34,5 @@ butter-debug-module\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 butter-debug-module\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
 butter-debug-module\stm32f1xx_it.o: ../Core/Inc/stm32f1xx_it.h
+butter-debug-module\stm32f1xx_it.o: ../bsp/self_def_massage/self_def_massage.h
+butter-debug-module\stm32f1xx_it.o: ../Core/Inc/gpio.h

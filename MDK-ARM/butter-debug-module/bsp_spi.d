@@ -1,5 +1,5 @@
-butter-debug-module\bsp_spi.o: ..\bsp\bsp_spi.c
-butter-debug-module\bsp_spi.o: ..\bsp\bsp_spi.h
+butter-debug-module\bsp_spi.o: ..\bsp\bsp_spi\bsp_spi.c
+butter-debug-module\bsp_spi.o: ..\bsp\bsp_spi\bsp_spi.h
 butter-debug-module\bsp_spi.o: ../Core/Inc/gpio.h
 butter-debug-module\bsp_spi.o: ../Core/Inc/main.h
 butter-debug-module\bsp_spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h

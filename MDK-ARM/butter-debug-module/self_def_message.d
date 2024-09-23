@@ -1,5 +1,5 @@
-butter-debug-module\self_def_message.o: ..\bsp\self_def_message.c
-butter-debug-module\self_def_message.o: ..\bsp\self_def_massage.h
+butter-debug-module\self_def_message.o: ..\bsp\self_def_massage\self_def_message.c
+butter-debug-module\self_def_message.o: ..\bsp\self_def_massage\self_def_massage.h
 butter-debug-module\self_def_message.o: ../Core/Inc/gpio.h
 butter-debug-module\self_def_message.o: ../Core/Inc/main.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
@@ -35,6 +35,8 @@ butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
-butter-debug-module\self_def_message.o: ..\bsp\bsp_usart.h
+butter-debug-module\self_def_message.o: ../bsp/bsp_usart/bsp_usart.h
 butter-debug-module\self_def_message.o: ../Core/Inc/usart.h
 butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+butter-debug-module\self_def_message.o: ../Modules/KEY.h
