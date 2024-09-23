@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 butter-debug-module\self_def_message.o: ..\bsp\self_def_massage\self_def_message.c
 butter-debug-module\self_def_message.o: ..\bsp\self_def_massage\self_def_massage.h
+=======
+butter-debug-module\self_def_message.o: ..\bsp\self_def_message\self_def_message.c
+butter-debug-module\self_def_message.o: ..\bsp\self_def_message\self_def_massage.h
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
 butter-debug-module\self_def_message.o: ../Core/Inc/gpio.h
 butter-debug-module\self_def_message.o: ../Core/Inc/main.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
@@ -9,14 +14,14 @@ butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Include/core_cm3.h
-butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\self_def_message.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Include/cmsis_version.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 butter-debug-module\self_def_message.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\self_def_message.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
@@ -35,8 +40,14 @@ butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+<<<<<<< HEAD
 butter-debug-module\self_def_message.o: ../bsp/bsp_usart/bsp_usart.h
 butter-debug-module\self_def_message.o: ../Core/Inc/usart.h
 butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\self_def_message.o: ../Modules/KEY.h
+=======
+butter-debug-module\self_def_message.o: ..\bsp\bsp_usart\bsp_usart.h
+butter-debug-module\self_def_message.o: ../Core/Inc/usart.h
+butter-debug-module\self_def_message.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6

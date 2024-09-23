@@ -101,9 +101,7 @@
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
         <bEvRecOn>1</bEvRecOn>
-        <bSchkAxf>0</bSchkAxf>
-        <bTchkAxf>0</bTchkAxf>
-        <nTsel>6</nTsel>
+        <nTsel>5</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -218,7 +216,6 @@
       <pMultCmdsp></pMultCmdsp>
       <DebugDescription>
         <Enable>1</Enable>
-        <EnableFlashSeq>0</EnableFlashSeq>
         <EnableLog>0</EnableLog>
         <Protocol>2</Protocol>
         <DbgClock>10000000</DbgClock>
@@ -637,6 +634,7 @@
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
+<<<<<<< HEAD
       <GroupNumber>5</GroupNumber>
       <FileNumber>32</FileNumber>
       <FileType>5</FileType>
@@ -651,36 +649,51 @@
     <File>
       <GroupNumber>5</GroupNumber>
       <FileNumber>33</FileNumber>
+=======
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>43</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\OLED.c</PathWithFileName>
+      <PathWithFileName>..\Modules\OLED\OLED.c</PathWithFileName>
       <FilenameWithoutPath>OLED.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>5</GroupNumber>
       <FileNumber>34</FileNumber>
       <FileType>1</FileType>
+=======
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>44</FileNumber>
+      <FileType>5</FileType>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\Buzzer.c</PathWithFileName>
-      <FilenameWithoutPath>Buzzer.c</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED.h</PathWithFileName>
+      <FilenameWithoutPath>OLED.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>5</GroupNumber>
       <FileNumber>35</FileNumber>
+=======
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>45</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\Buzzer.h</PathWithFileName>
-      <FilenameWithoutPath>Buzzer.h</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED_Font.h</PathWithFileName>
+      <FilenameWithoutPath>OLED_Font.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -717,8 +730,13 @@
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>38</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>46</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -729,8 +747,13 @@
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>39</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>47</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -741,8 +764,13 @@
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>40</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>48</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -753,8 +781,13 @@
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>41</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>49</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -765,12 +798,42 @@
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>42</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>50</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
+      <PathWithFileName>..\bsp\bsp_usart\bsp_usart.c</PathWithFileName>
+      <FilenameWithoutPath>bsp_usart.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>51</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\bsp\bsp_usart\bsp_usart.h</PathWithFileName>
+      <FilenameWithoutPath>bsp_usart.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>52</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+<<<<<<< HEAD
       <PathWithFileName>..\bsp\bsp_usart\bsp_usart.c</PathWithFileName>
       <FilenameWithoutPath>bsp_usart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
@@ -796,18 +859,30 @@
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\bsp\self_def_massage\self_def_message.c</PathWithFileName>
+=======
+      <PathWithFileName>..\bsp\self_def_message\self_def_message.c</PathWithFileName>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FilenameWithoutPath>self_def_message.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
+<<<<<<< HEAD
       <GroupNumber>6</GroupNumber>
       <FileNumber>45</FileNumber>
+=======
+      <GroupNumber>7</GroupNumber>
+      <FileNumber>53</FileNumber>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
+<<<<<<< HEAD
       <PathWithFileName>..\bsp\self_def_massage\self_def_massage.h</PathWithFileName>
+=======
+      <PathWithFileName>..\bsp\self_def_message\self_def_massage.h</PathWithFileName>
+>>>>>>> bcda6cc7621bb9ba1e5436421cbed07dbc5807c6
       <FilenameWithoutPath>self_def_massage.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
