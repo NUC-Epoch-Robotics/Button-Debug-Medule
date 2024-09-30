@@ -1,8 +1,8 @@
 butter-debug-module\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
-butter-debug-module\heap_4.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+butter-debug-module\heap_4.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 butter-debug-module\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\heap_4.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
-butter-debug-module\heap_4.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\heap_4.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\heap_4.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 butter-debug-module\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

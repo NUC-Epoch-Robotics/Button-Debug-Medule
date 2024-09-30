@@ -1,8 +1,8 @@
 butter-debug-module\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/timers.c
-butter-debug-module\timers.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+butter-debug-module\timers.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 butter-debug-module\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\timers.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
-butter-debug-module\timers.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\timers.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\timers.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\timers.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 butter-debug-module\timers.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

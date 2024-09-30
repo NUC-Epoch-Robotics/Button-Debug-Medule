@@ -99,7 +99,6 @@ void  Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff)
 }
 
 
-
 /* DMA串口发送函数封装 */
 void Uart_TxDMA(UART_HandleTypeDef *huart,uint8_t* Usart_SendBuf)
 {
@@ -113,11 +112,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 	uint8_t cnt =0;
 	int commit;//接收传来的指令      
 	memset(rx_data,0,sizeof(rx_data));
-//	 	for(int i=0;i<=DataBuff[4]+6;i++)
-//																			 {
-//																					printf("DataBuff[%d]=%u\r\n ",i,DataBuff[i]);
-//																				 }
-//		 	printf("DataBuff[cnt+5]%u?=%d\r\n ",DataBuff[cnt+5],usart_frame_end );
+
  if( huart->Instance == USART1)
    {   
 				if(DataBuff[0] == usart_frame_hand1&&
@@ -135,8 +130,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 		  	//CRC检验 && 检测是否是包尾
 			if(DataBuff[cnt+5] == usart_frame_end ) 
 				{ 
-					User_rx_Callback(rx_data);
-					
+					User_rx_Callback(rx_data);					
 				} 
 			else  
 			 {
@@ -161,18 +155,6 @@ void User_rx_Callback(uint8_t* data)
 	//代码
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

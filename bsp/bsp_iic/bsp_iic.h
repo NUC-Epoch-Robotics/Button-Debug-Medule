@@ -61,7 +61,7 @@ void IIC_Mode_Change(IICInstance* iic ,IIC_Work_Mode mode);
 *@param  IIC_Seq  IIC_SEQ_RELEASE 此次发送数据后释放总线
 *                 IIC_SEQ_HOLDON  保持总线占有权不释放，可继续发送数据
 */
-void IICTransmit(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_Seq);
+void IICSend(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_Seq);
 
 /*
 *@brief IIC接收函数封装

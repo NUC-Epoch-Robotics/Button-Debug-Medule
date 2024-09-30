@@ -41,7 +41,7 @@ typedef struct
 void frameInstance_init(FrameInstance* frame,FrameCommand command);
 void frame_buf(FrameInstance* frame,uint8_t* Data,int len);
 void Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff);
-void User_rx_Callback(uint8_t* data);
+
 #endif
 
 

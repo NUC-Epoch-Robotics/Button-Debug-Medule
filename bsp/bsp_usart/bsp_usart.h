@@ -3,33 +3,33 @@
 
 #include "gpio.h"
 
-#define USART_BUF_SIZE	256
 
+#define BUF_SIZE     64      //单次最大接收字节数
 typedef enum
 {
     USART_TRANSFER_NONE=0,
     USART_TRANSFER_BLOCKING,
     USART_TRANSFER_IT,
     USART_TRANSFER_DMA,
+	  USART_TRANSFER_IDLE
 } USART_TRANSFER_MODE;
 
 typedef struct
 {
-	
   UART_HandleTypeDef   *usart_handle;
-  uint8_t              recv_buff;          // 模块接收一包数据的大小
   USART_TRANSFER_MODE  TRANSFER_MODE;
 } USARTInstance;
 
+extern DMA_HandleTypeDef hdma_usart1_rx;
 
 //串口初始化
-int bsp_usart_init(	USARTInstance* usart, uint8_t *buf );
+int bsp_usart_init(	USARTInstance* usart , UART_HandleTypeDef   *usart_handle,USART_TRANSFER_MODE  TRANSFER_MODE);
               
 //基于HAL库usart发送函数封装
-void SensorUartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode );
-
-void UART_Receive_IT_enable( USARTInstance *usart,uint8_t *pData,uint16_t Size);
-
+void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size);
+ void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size );
+void UART_Receive_IT_enable( USARTInstance *usart,uint32_t InterruptDefinitions);
+void  Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff);
 #endif
 
 

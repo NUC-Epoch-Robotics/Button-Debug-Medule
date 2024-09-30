@@ -1,7 +1,5 @@
-butter-debug-module\key.o: ..\Modules\KEY.c
-butter-debug-module\key.o: ..\Modules\KEY.h
-butter-debug-module\key.o: ../Core/Inc/gpio.h
-butter-debug-module\key.o: ../Core/Inc/main.h
+butter-debug-module\key.o: ..\Modules\KEY\KEY.c
+butter-debug-module\key.o: ..\Modules\KEY\KEY.h
 butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 butter-debug-module\key.o: ../Core/Inc/stm32f1xx_hal_conf.h
 butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -35,3 +33,7 @@ butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uar
 butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\key.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+butter-debug-module\key.o: ..\Modules\KEY\multi_button.h
+butter-debug-module\key.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+butter-debug-module\key.o: ../Core/Inc/main.h
+butter-debug-module\key.o: ../Core/Inc/gpio.h

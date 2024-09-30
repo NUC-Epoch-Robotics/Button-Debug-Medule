@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "dma.h"
 #include "i2c.h"
 #include "spi.h"
@@ -32,17 +33,21 @@
 #include "stdio.h"
 #include "bsp_usart.h"
 #include "KEY.h"
+#include "multi_button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern  uint8_t DataBuff[BUF_SIZE]; 
 extern DMA_HandleTypeDef hdma_usart1_rx;
+extern uint8_t KEY_flag;
+extern struct Button KEY_1;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+//int timer_ticks=0;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -58,27 +63,14 @@ extern DMA_HandleTypeDef hdma_usart1_rx;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)//Size参数是本次接受到的数据长度
-//{
-//	if(huart==&huart2)
-//	{
-//		HAL_UART_Transmit_DMA(&huart1, DataBuff, Size);
-//		printf("成功\r\n");
-//for(int i=0;i<=Size-1;i++)
-//	{
-//		printf("%u ",DataBuff[i]);
-//		printf("\r\n");
-//	}
-//		HAL_UARTEx_ReceiveToIdle_DMA(&huart1, DataBuff, sizeof(DataBuff));//重新启动接收
-//		__HAL_DMA_DISABLE_IT(&hdma_usart1_rx,DMA_IT_HT);//禁止DMA传输过半中断
-//	}
-//}
+
 
 /* USER CODE END 0 */
 
@@ -121,34 +113,38 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
+	HAL_TIM_Base_Start(&htim2);  //启动定时器
+  KEY_Init();
 
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t Data1[1];
+	uint8_t Data1[3];
 	Data1[0]=0x11;
+	Data1[1]=0x22;
+	Data1[2]=0x33;
   FrameInstance frame1;
   frameInstance_init(&frame1,usart_W_DATA);
-
-
+	frame_buf(&frame1,Data1,3);
 	Uart_Idle_rcDMA(&huart1, DataBuff);
+  
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-int flag=0;
-		 flag = KEY();
-		if(flag==0)
-		{
-		 frame_buf(&frame1, Data1,1);
-		 flag=1;
-		 HAL_Delay(450);
-		}
-		
-  }
+
+	}
+
   /* USER CODE END 3 */
 }
 
@@ -201,6 +197,27 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM1 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM1) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

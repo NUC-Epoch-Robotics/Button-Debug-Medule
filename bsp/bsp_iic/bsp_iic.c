@@ -7,6 +7,20 @@ static uint8_t idx = 0; // 配合中断以及初始化
 static IICInstance *iic_instance[IIC_DEVICE_CNT] = {NULL};
 #define iic_clog_time 100
 
+
+int bsp_iic_init(	IICInstance* iic,I2C_HandleTypeDef* bsp_iic_Handle ,IIC_Work_Mode   Work_Mode )
+{
+	if(iic->bsp_iic_Handle!=NULL )
+	{
+		iic->Work_Mode = Work_Mode;
+		iic->bsp_iic_Handle = bsp_iic_Handle;
+	  return 0;
+	 }
+	return -1;
+}    
+
+
+
 /*
 *@brief 传输模式改变
 *@param iic handle
@@ -33,7 +47,7 @@ void IIC_Mode_Change(IICInstance* iic ,IIC_Work_Mode mode)
 *@param  IIC_Seq  IIC_SEQ_RELEASE 此次发送数据后释放总线
 *                 IIC_SEQ_HOLDON  保持总线占有权不释放，可继续发送数据
 */
-void IICTransmit(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_Seq)
+void IICSend(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_Seq)
 {
 
   switch (iic->Work_Mode)

@@ -1,8 +1,8 @@
 butter-debug-module\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
-butter-debug-module\event_groups.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+butter-debug-module\event_groups.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
 butter-debug-module\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\event_groups.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stddef.h
-butter-debug-module\event_groups.o: D:\Keil5\ARM\ARMCC\Bin\..\include\stdint.h
+butter-debug-module\event_groups.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+butter-debug-module\event_groups.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\event_groups.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 butter-debug-module\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

@@ -1,6 +1,15 @@
 #include "bsp_spi.h"
 
-
+int bsp_spi_init(	SPIInstance* spi,SPI_HandleTypeDef*  bsp_spi_Handle, SPI_Work_Mode Work_Mode )
+{
+	if(spi->bsp_spi_Handle!=NULL )
+	{
+		spi->Work_Mode = Work_Mode;
+		spi->bsp_spi_Handle = bsp_spi_Handle;
+	  return 0;
+	 }
+	return -1;
+}    
 
 
 
