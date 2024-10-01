@@ -30,6 +30,12 @@ void button4_callback(void *button);
 void button5_callback(void *button);
 void button6_callback(void *button);
 void KEY_Init(void);
+int key(void);
 
+
+
+/*************************************************************************/
+#define KEY1  HAL_GPIO_ReadPin(KEY1_GPIO_Port,KEY1_Pin)//读取按键1
+#define KEY1_PRES   1	//KEY1按下
 #endif  
 

@@ -279,45 +279,67 @@ void button6_callback(void *button)
 void KEY_Init(void)
 {
 
-    button_init(&button1, read_button1_GPIO, 0);
-    button_attach(&button1, 	SINGLE_CLICK, button1_callback);
-    button_attach(&button1, DOUBLE_CLICK, button1_callback);
-    button_attach(&button1, LONG_PRESS_START, button1_callback);
-	
-	  button_init(&button2, read_button2_GPIO, 0);
-    button_attach(&button2, 	SINGLE_CLICK, button2_callback);
-    button_attach(&button2, DOUBLE_CLICK, button2_callback);
-    button_attach(&button2, LONG_PRESS_START, button2_callback);
-	
-	  button_init(&button3, read_button3_GPIO, 0);
-    button_attach(&button3, 	SINGLE_CLICK, button3_callback);
-    button_attach(&button3, DOUBLE_CLICK, button3_callback);
-    button_attach(&button3, LONG_PRESS_START, button3_callback);
-	
-	  button_init(&button4, read_button4_GPIO, 0);
-    button_attach(&button4, 	SINGLE_CLICK, button4_callback);
-    button_attach(&button4, DOUBLE_CLICK, button4_callback);
-    button_attach(&button4, LONG_PRESS_START, button4_callback);
-	
-	  button_init(&button5, read_button5_GPIO, 0);
-    button_attach(&button5, 	SINGLE_CLICK, button5_callback);
-    button_attach(&button5, DOUBLE_CLICK, button5_callback);
-    button_attach(&button5, LONG_PRESS_START, button5_callback);
-		
-	  button_init(&button6, read_button6_GPIO, 0);
-    button_attach(&button6, 	SINGLE_CLICK, button6_callback);
-    button_attach(&button6, DOUBLE_CLICK, button6_callback);
-    button_attach(&button6, LONG_PRESS_START, button6_callback);
-	 
-	
-    button_start(&button1);
-    button_start(&button2);
-		button_start(&button3);
-    button_start(&button4);
-		button_start(&button5);
-    button_start(&button6);
+//    button_init(&button1, read_button1_GPIO, 0);
+//    button_attach(&button1, 	SINGLE_CLICK, button1_callback);
+//    button_attach(&button1, DOUBLE_CLICK, button1_callback);
+//    button_attach(&button1, LONG_PRESS_START, button1_callback);
+//	
+//	  button_init(&button2, read_button2_GPIO, 0);
+//    button_attach(&button2, 	SINGLE_CLICK, button2_callback);
+//    button_attach(&button2, DOUBLE_CLICK, button2_callback);
+//    button_attach(&button2, LONG_PRESS_START, button2_callback);
+//	
+//	  button_init(&button3, read_button3_GPIO, 0);
+//    button_attach(&button3, 	SINGLE_CLICK, button3_callback);
+//    button_attach(&button3, DOUBLE_CLICK, button3_callback);
+//    button_attach(&button3, LONG_PRESS_START, button3_callback);
+//	
+//	  button_init(&button4, read_button4_GPIO, 0);
+//    button_attach(&button4, 	SINGLE_CLICK, button4_callback);
+//    button_attach(&button4, DOUBLE_CLICK, button4_callback);
+//    button_attach(&button4, LONG_PRESS_START, button4_callback);
+//	
+//	  button_init(&button5, read_button5_GPIO, 0);
+//    button_attach(&button5, 	SINGLE_CLICK, button5_callback);
+//    button_attach(&button5, DOUBLE_CLICK, button5_callback);
+//    button_attach(&button5, LONG_PRESS_START, button5_callback);
+//		
+//	  button_init(&button6, read_button6_GPIO, 0);
+//    button_attach(&button6, 	SINGLE_CLICK, button6_callback);
+//    button_attach(&button6, DOUBLE_CLICK, button6_callback);
+//    button_attach(&button6, LONG_PRESS_START, button6_callback);
+//	 
+//	
+//    button_start(&button1);
+//    button_start(&button2);
+//		button_start(&button3);
+//    button_start(&button4);
+//		button_start(&button5);
+//    button_start(&button6);
 		
 }
+
+
+
+
+/*************************************************************************/
+
+
+int key(){
+
+
+	static uint8_t key_up=1;//按键松开标志位
+	if(key_up&&(KEY1==0))
+	{
+		HAL_Delay(20);//去抖动
+		key_up=0;
+		if(KEY1==0)return KEY1_PRES;
+
+	}
+	else if(KEY1==1) key_up=1; 	    
+ 	return 0;//无按键按下
+}
+
 
 
 

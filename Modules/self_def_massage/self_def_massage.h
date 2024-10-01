@@ -30,7 +30,7 @@ typedef struct
  uint16_t data[USART_PACKAGE_LEN]; //数据包缓冲区
  uint8_t len;            //数据长度
  uint8_t frame_end;       //帧尾
- uint16_t (*CRC16_check)(const uint8_t *data,uint8_t len);
+// uint16_t (*CRC16_check)(const uint8_t *data,uint8_t len);
 }FrameInstance;
 
 

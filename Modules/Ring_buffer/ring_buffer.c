@@ -1,7 +1,15 @@
 #include "ring_buffer.h"
 #include "stddef.h"
+#include "gpio.h"
 
 
+void RingBufferinit(stRingBuff* ringBuf,uint8_t* data,uint8_t len)
+{
+ringBuf->in =0;
+ringBuf->out =0;
+ringBuf->buffer =data;
+ringBuf->buffer_size =len;
+}
 
 //判断数组是否写满
 int IsRingBufferFull(stRingBuff *ringBuf)
@@ -10,7 +18,7 @@ int IsRingBufferFull(stRingBuff *ringBuf)
     {
         return 0;    
     }
-  if(((ringBuf->in+1) % RING_BUFF_SIZE) == ringBuf->out)
+  if(((ringBuf->in+1) % ringBuf->buffer_size) == ringBuf->out)
     {
         return 1;
     }
@@ -19,21 +27,22 @@ int IsRingBufferFull(stRingBuff *ringBuf)
 
 	
 
-void WriteOneByteToRingBuffer(stRingBuff *ringBuf,char data)
+//写一节字节	
+void WriteOneByteToRingBuffer(stRingBuff *ringBuf,uint8_t data)
 {
  if (ringBuf == NULL || IsRingBufferFull(ringBuf))//写之前先判断队列是否写满
     {     
         return;
     }
     ringBuf->buffer[ringBuf->in] = data;
-    ringBuf->in = (++ringBuf->in) % RING_BUFF_SIZE;    //防止越界
+    ringBuf->in = (++ringBuf->in) % ringBuf->buffer_size;    //防止越界
  
 }
 
 
 
-//读写一节字节
-void ReadOneByteFromRingBuffer(stRingBuff *ringBuf,char *data)
+//读一节字节
+void ReadOneByteFromRingBuffer(stRingBuff *ringBuf,uint8_t *data)
 {
  if (ringBuf == NULL||IsRingBufferEmpty(ringBuf)) //读之前判断队列是否为空
     {
@@ -42,12 +51,12 @@ void ReadOneByteFromRingBuffer(stRingBuff *ringBuf,char *data)
     }
 		
     *data = ringBuf->buffer[ringBuf->out];
-    ringBuf->out = (++ringBuf->out) % RING_BUFF_SIZE;    //防止越界 
+    ringBuf->out = (++ringBuf->out) % ringBuf->buffer_size;    //防止越界 
 }
 
 
 //写入多个字节
-void WriteRingBuffer(stRingBuff *ringBuf,char *writeBuf,unsigned int len)
+void WriteRingBuffer(stRingBuff *ringBuf,uint8_t *writeBuf,unsigned int len)
 {
     unsigned int i;
  
@@ -63,8 +72,8 @@ void WriteRingBuffer(stRingBuff *ringBuf,char *writeBuf,unsigned int len)
 }
 	
 	
-//读入多个字节
-void ReadRingBuffer(stRingBuff *ringBuf,char *readBuf,unsigned int len)
+//读多个字节
+void ReadRingBuffer(stRingBuff *ringBuf,uint8_t *readBuf,unsigned int len)
 {
     unsigned int i;
 	
@@ -85,8 +94,7 @@ int GetRingBufferLength(stRingBuff *ringBuf)
     {
         return 0;
     }
- 
-    return (ringBuf->in - ringBuf->out + RING_BUFF_SIZE) % RING_BUFF_SIZE;
+    return (ringBuf->in - ringBuf->out + ringBuf->buffer_size) % ringBuf->buffer_size;
 }
 
 int IsRingBufferEmpty(stRingBuff *ringBuf)

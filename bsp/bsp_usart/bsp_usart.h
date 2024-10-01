@@ -26,8 +26,8 @@ extern DMA_HandleTypeDef hdma_usart1_rx;
 int bsp_usart_init(	USARTInstance* usart , UART_HandleTypeDef   *usart_handle,USART_TRANSFER_MODE  TRANSFER_MODE);
               
 //基于HAL库usart发送函数封装
-void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size);
- void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size );
+void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode);
+ void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode );
 void UART_Receive_IT_enable( USARTInstance *usart,uint32_t InterruptDefinitions);
 void  Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff);
 #endif

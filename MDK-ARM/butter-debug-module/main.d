@@ -33,20 +33,6 @@ butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_ua
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-butter-debug-module\main.o: ../Core/Inc/FreeRTOSConfig.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
-butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 butter-debug-module\main.o: ../Core/Inc/dma.h
 butter-debug-module\main.o: ../Core/Inc/i2c.h
 butter-debug-module\main.o: ../Core/Inc/spi.h
@@ -64,3 +50,4 @@ butter-debug-module\main.o: ../Modules/KEY/KEY.h
 butter-debug-module\main.o: ../Modules/KEY/multi_button.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\main.o: ../Modules/Buzzer/Buzzer.h
+butter-debug-module\main.o: ../Modules/Ring_buffer/ring_buffer.h

@@ -36,6 +36,7 @@ void  uart_rcDMA(UART_HandleTypeDef *huart,uint8_t *DataBuff);
 /* Private  functions ---------------------------------------------------------*/
 
 
+
 /**
   * @brief  
   * @param 
@@ -66,7 +67,7 @@ void frameInstance_init(FrameInstance* frame,FrameCommand command)
   UART_Receive_IT_enable(&Uart_frame ,UART_IT_IDLE);//启用串口空闲中断	
 	}
 }
- 
+
 
 
 /**  把数据帧放在堆栈中  **/
@@ -84,12 +85,15 @@ void frame_buf(FrameInstance* frame,uint8_t* Data,int len)
 	 Usart_SendBuf[i] = Data[i-t]; 
 	 }
   t=len+t;
-  Usart_SendBuf[t++] = frame->CRC16_check(Data, len)>> 8;
-	Usart_SendBuf[t++] = frame->CRC16_check(Data, len); 
+//	 crc=frame->CRC16_check(Data, len);
+//  Usart_SendBuf[t++] = (crc>> 8)& 0xFF;
+//	Usart_SendBuf[t++] = crc& 0xFF; 
   Usart_SendBuf[t] = usart_frame_end;
 	 t=t+2;         //停止位
 
-  UartSend(&Uart_frame, Usart_SendBuf,t ); //DMA传输
+  UartSend(&Uart_frame, Usart_SendBuf,t,USART_TRANSFER_DMA ); //DMA传输
+	 
+ printf("发送\r\n");
 }
 
 
@@ -115,21 +119,13 @@ uint16_t CRC16_Check(const uint8_t *data,uint8_t len)
 }
  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void HAL_UART_ErrorCallback(UART_HandleTypeDef * huart)
+{
+    if(huart->Instance == USART1)
+    {
+		  Uart_Idle_rcDMA(Uart_frame.usart_handle, DataBuff); // 接收发生错误后重启
+      memset(DataBuff, 0, sizeof(DataBuff));
+    }
+}
 
 

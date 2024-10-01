@@ -35,18 +35,8 @@ butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
-butter-debug-module\button_motor.o: ../Core/Inc/FreeRTOSConfig.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
-butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 butter-debug-module\button_motor.o: ../bsp/self_def_massage/self_def_massage.h
 butter-debug-module\button_motor.o: ../Modules/KEY/KEY.h
-butter-debug-module\button_motor.o: ../bsp/bsp_usart/bsp_usart.h
 butter-debug-module\button_motor.o: ../Modules/KEY/multi_button.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\button_motor.o: ../Modules/OLED/OLED_IIC_Config.h
@@ -56,3 +46,4 @@ butter-debug-module\button_motor.o: ../Modules/Buzzer/Buzzer.h
 butter-debug-module\button_motor.o: ../Core/Inc/tim.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\button_motor.o: ../Core/Inc/usart.h
+butter-debug-module\button_motor.o: ../Modules/Ring_buffer/ring_buffer.h

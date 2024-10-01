@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "cmsis_os.h"
 #include "dma.h"
 #include "i2c.h"
 #include "spi.h"
@@ -38,15 +37,17 @@
 #include "KEY.h"
 #include "multi_button.h"
 #include "Buzzer.h"
+#include "ring_buffer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-extern  uint8_t DataBuff[BUF_SIZE]; 
+extern uint8_t DataBuff[BUF_SIZE]; 
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern uint8_t KEY_flag;
 extern struct Button KEY_1;
-
+extern uint8_t ringbuff[RING_BUFF_SIZE];
+extern stRingBuff Ring_Buff;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -67,7 +68,6 @@ extern struct Button KEY_1;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -85,7 +85,7 @@ void MX_FREERTOS_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+ 
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -117,39 +117,33 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-	HAL_TIM_Base_Start(&htim2);  //启动定时器
-  KEY_Init();
-  OLED_Init();
-  Buzzer_on();
+//	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
+//	HAL_TIM_Base_Start(&htim2);  //启动定时器
+//  KEY_Init();
+//  OLED_Init();
+//  Buzzer_on();
+ RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in freertos.c) */
-  MX_FREERTOS_Init();
-
-  /* Start scheduler */
-  osKernelStart();
-
-  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	uint8_t Data1[3];
+
+
+	uint8_t Data1[1];
 	Data1[0]=0x11;
-	Data1[1]=0x22;
-	Data1[2]=0x33;
-  FrameInstance frame1;
+	FrameInstance frame1;
   frameInstance_init(&frame1,usart_W_DATA);
-	frame_buf(&frame1,Data1,3);
+	frame_buf(&frame1,Data1,1);
 	Uart_Idle_rcDMA(&huart1, DataBuff);
-  
+
+ printf("初始哈\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
-	}
-
+}
   /* USER CODE END 3 */
 }
 

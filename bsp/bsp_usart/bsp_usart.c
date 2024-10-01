@@ -34,9 +34,9 @@ int bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, USAR
 
 
 //基于HAL库usart发送函数封装
- void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size )
+ void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode )
 {
-	USART_TRANSFER_MODE mode=usart->TRANSFER_MODE ;
+	//USART_TRANSFER_MODE mode=usart->TRANSFER_MODE ;
     switch (mode)
     {
     case USART_TRANSFER_BLOCKING:
@@ -56,10 +56,10 @@ int bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, USAR
 }
 
 //基于HAL库usart发送函数封装
- void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size )
+ void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size, USART_TRANSFER_MODE mode)
 {
 	
-	USART_TRANSFER_MODE mode=usart->TRANSFER_MODE ;
+	//USART_TRANSFER_MODE mode=usart->TRANSFER_MODE ;
     switch (mode)
     {
     case USART_TRANSFER_BLOCKING:

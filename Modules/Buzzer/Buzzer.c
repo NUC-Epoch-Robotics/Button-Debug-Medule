@@ -33,3 +33,4 @@ void Buzzer_on(void)
 	HAL_Delay(1000);
 	Buzzer_off();
 }
+
