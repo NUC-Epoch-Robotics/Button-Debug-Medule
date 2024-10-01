@@ -60,7 +60,7 @@ osThreadId Buzzer_taskHandle;
 void StartDefaultTask(void const * argument);
 extern void button_task(void const * argument);
 extern void oled_task(void const * argument);
-extern void butter_task(void const * argument);
+extern void buzzer_task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -120,7 +120,7 @@ void MX_FREERTOS_Init(void) {
   OLED_taskHandle = osThreadCreate(osThread(OLED_task), NULL);
 
   /* definition and creation of Buzzer_task */
-  osThreadDef(Buzzer_task, butter_task, osPriorityIdle, 0, 128);
+  osThreadDef(Buzzer_task, buzzer_task, osPriorityIdle, 0, 128);
   Buzzer_taskHandle = osThreadCreate(osThread(Buzzer_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */

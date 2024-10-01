@@ -1,15 +1,8 @@
 #ifndef __BUZZER_H
 #define __BUZZER_H
 #include "gpio.h"
-
-
-
-void Buzzer_init(void);
+void Buzzer_SetFreq(uint16_t freq);
 void Buzzer_off(void);
-void Buzzzer_on(uint16_t Pulse);
+void Buzzer_on(void);
 
-
-
-#endif 
-
-
+#endif

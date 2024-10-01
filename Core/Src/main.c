@@ -32,8 +32,12 @@
 #include "self_def_massage.h"
 #include "stdio.h"
 #include "bsp_usart.h"
+#include "OLED_IIC_Config.h"
+#include "OLED_Function.h"
+#include "OLED_Front.h"
 #include "KEY.h"
 #include "multi_button.h"
+#include "Buzzer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,7 +120,8 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
 	HAL_TIM_Base_Start(&htim2);  //启动定时器
   KEY_Init();
-
+  OLED_Init();
+  Buzzer_on();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

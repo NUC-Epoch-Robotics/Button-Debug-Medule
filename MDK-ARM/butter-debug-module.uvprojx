@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../bsp/bsp_spi;../Applications;../Modules;../bsp/bsp_iic;../bsp/bsp_usart;../bsp/self_def_massage;../Modules/Buzzer;../Modules/KEY;./DebugConfig;../Modules/self_def_massage;../Modules/Ring_buffer;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../bsp/bsp_spi;../Applications;../Modules;../bsp/bsp_iic;../bsp/bsp_usart;../bsp/self_def_massage;../Modules/Buzzer;../Modules/KEY;./DebugConfig;../Modules/self_def_massage;../Modules/Ring_buffer;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Modules/OLED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -941,14 +941,24 @@
           <GroupName>Modules</GroupName>
           <Files>
             <File>
-              <FileName>self_def_message.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\self_def_massage\self_def_message.c</FilePath>
+              <FileName>KEY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\KEY\KEY.h</FilePath>
             </File>
             <File>
-              <FileName>self_def_massage.h</FileName>
+              <FileName>KEY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\KEY\KEY.c</FilePath>
+            </File>
+            <File>
+              <FileName>multi_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\KEY\multi_button.c</FilePath>
+            </File>
+            <File>
+              <FileName>multi_button.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Modules\self_def_massage\self_def_massage.h</FilePath>
+              <FilePath>..\Modules\KEY\multi_button.h</FilePath>
             </File>
             <File>
               <FileName>Buzzer.c</FileName>
@@ -961,6 +971,31 @@
               <FilePath>..\Modules\Buzzer\Buzzer.h</FilePath>
             </File>
             <File>
+              <FileName>OLED_IIC_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\OLED\OLED_IIC_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_IIC_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_IIC_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Function.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\OLED\OLED_Function.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Function.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_Function.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Front.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_Front.h</FilePath>
+            </File>
+            <File>
               <FileName>ring_buffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Modules\Ring_buffer\ring_buffer.c</FilePath>
@@ -971,24 +1006,14 @@
               <FilePath>..\Modules\Ring_buffer\ring_buffer.h</FilePath>
             </File>
             <File>
-              <FileName>KEY.c</FileName>
+              <FileName>self_def_message.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Modules\KEY\KEY.c</FilePath>
+              <FilePath>..\Modules\self_def_massage\self_def_message.c</FilePath>
             </File>
             <File>
-              <FileName>KEY.h</FileName>
+              <FileName>self_def_massage.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Modules\KEY\KEY.h</FilePath>
-            </File>
-            <File>
-              <FileName>multi_button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\KEY\multi_button.c</FilePath>
-            </File>
-            <File>
-              <FileName>multi_button.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Modules\KEY\multi_button.h</FilePath>
+              <FilePath>..\Modules\self_def_massage\self_def_massage.h</FilePath>
             </File>
           </Files>
         </Group>

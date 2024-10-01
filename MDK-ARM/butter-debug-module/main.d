@@ -57,6 +57,10 @@ butter-debug-module\main.o: ../Core/Inc/gpio.h
 butter-debug-module\main.o: ../bsp/self_def_massage/self_def_massage.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\main.o: ../bsp/bsp_usart/bsp_usart.h
+butter-debug-module\main.o: ../Modules/OLED/OLED_IIC_Config.h
+butter-debug-module\main.o: ../Modules/OLED/OLED_Function.h
+butter-debug-module\main.o: ../Modules/OLED/OLED_Front.h
 butter-debug-module\main.o: ../Modules/KEY/KEY.h
 butter-debug-module\main.o: ../Modules/KEY/multi_button.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+butter-debug-module\main.o: ../Modules/Buzzer/Buzzer.h

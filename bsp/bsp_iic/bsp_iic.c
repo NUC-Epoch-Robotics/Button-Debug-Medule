@@ -99,8 +99,6 @@ void IICSend(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_
 
 void IICReceive(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode IIC_Seq)
 {
-	
-	
   switch (iic->Work_Mode)
 	{
 	 case IIC_BLACK_MODE://阻塞模式
@@ -140,17 +138,17 @@ void IICReceive(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode I
 }
 
 //对寄存器操作
-void IICAccessMem( IICInstance* iic,  uint16_t mem_addr, uint8_t *pData, uint16_t Size,uint8_t mem8bit_flag)
+void IICAccessMem( IICInstance* iic, uint16_t reg,  uint16_t mem_addr, uint8_t *pData, uint16_t Size,uint8_t mem8bit_flag)
 {
 	 uint16_t bit_flag = mem8bit_flag ? I2C_MEMADD_SIZE_8BIT : I2C_MEMADD_SIZE_16BIT;//判断mem8bit_flag是否为8
 switch(iic->Access_Mode)
 {
 	case IIC_Write_Mem:
-		HAL_I2C_Mem_Write(iic->bsp_iic_Handle ,iic->reg, mem_addr,bit_flag, pData ,Size, iic_clog_time);
+		HAL_I2C_Mem_Write(iic->bsp_iic_Handle ,reg, mem_addr,bit_flag, pData ,Size, iic_clog_time);
     break;
    
 	case IIC_Read_Mem:
-		HAL_I2C_Mem_Read(iic->bsp_iic_Handle ,iic->reg, mem_addr, bit_flag, pData ,Size, iic_clog_time);
+		HAL_I2C_Mem_Read(iic->bsp_iic_Handle ,reg, mem_addr, bit_flag, pData ,Size, iic_clog_time);
     break;
 	
 	default:

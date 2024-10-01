@@ -49,6 +49,9 @@ butter-debug-module\button_motor.o: ../Modules/KEY/KEY.h
 butter-debug-module\button_motor.o: ../bsp/bsp_usart/bsp_usart.h
 butter-debug-module\button_motor.o: ../Modules/KEY/multi_button.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+butter-debug-module\button_motor.o: ../Modules/OLED/OLED_IIC_Config.h
+butter-debug-module\button_motor.o: ../Modules/OLED/OLED_Function.h
+butter-debug-module\button_motor.o: ../Modules/OLED/OLED_Front.h
 butter-debug-module\button_motor.o: ../Modules/Buzzer/Buzzer.h
 butter-debug-module\button_motor.o: ../Core/Inc/tim.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h

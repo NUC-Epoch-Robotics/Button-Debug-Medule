@@ -45,6 +45,7 @@ typedef struct iic_temp_s
 	 void *id; // 用于标识i2c instance
 } IICInstance;
 
+int bsp_iic_init(	IICInstance* iic,I2C_HandleTypeDef* bsp_iic_Handle ,IIC_Work_Mode   Work_Mode );
  
 /*
 *@brief 传输模式改变
@@ -80,7 +81,7 @@ void IICReceive(IICInstance* iic, uint8_t *pData, uint16_t Size, IIC_Work_Mode I
 *@param  Size          要读取或写入的数据长度
 *@param  mem8bit_flag  从机内存地址是否为8位
 */
-void IICAccessMem( IICInstance* iic,  uint16_t mem_addr ,uint8_t *pData , uint16_t Size,uint8_t mem8bit_flag);
+void IICAccessMem( IICInstance* iic,   uint16_t reg,uint16_t mem_addr ,uint8_t *pData , uint16_t Size,uint8_t mem8bit_flag);
 
 #endif
 

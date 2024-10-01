@@ -1,7 +1,4 @@
 butter-debug-module\buzzer.o: ..\Modules\Buzzer\Buzzer.c
-butter-debug-module\buzzer.o: ..\Modules\Buzzer\Buzzer.h
-butter-debug-module\buzzer.o: ../Core/Inc/gpio.h
-butter-debug-module\buzzer.o: ../Core/Inc/main.h
 butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 butter-debug-module\buzzer.o: ../Core/Inc/stm32f1xx_hal_conf.h
 butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -35,4 +32,7 @@ butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_
 butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\buzzer.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+butter-debug-module\buzzer.o: ..\Modules\Buzzer\Buzzer.h
+butter-debug-module\buzzer.o: ../Core/Inc/gpio.h
+butter-debug-module\buzzer.o: ../Core/Inc/main.h
 butter-debug-module\buzzer.o: ../Core/Inc/tim.h
