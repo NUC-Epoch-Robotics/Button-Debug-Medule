@@ -22,6 +22,7 @@ butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_ex
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_crc.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
@@ -33,6 +34,7 @@ butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_ua
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+butter-debug-module\main.o: ../Core/Inc/crc.h
 butter-debug-module\main.o: ../Core/Inc/dma.h
 butter-debug-module\main.o: ../Core/Inc/i2c.h
 butter-debug-module\main.o: ../Core/Inc/spi.h
@@ -51,3 +53,4 @@ butter-debug-module\main.o: ../Modules/KEY/multi_button.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\main.o: ../Modules/Buzzer/Buzzer.h
 butter-debug-module\main.o: ../Modules/Ring_buffer/ring_buffer.h
+butter-debug-module\main.o: ../Applications/button_motor.h

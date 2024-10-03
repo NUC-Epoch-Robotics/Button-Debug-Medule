@@ -24,6 +24,7 @@ butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_crc.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 butter-debug-module\self_def_message.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
@@ -41,3 +42,4 @@ butter-debug-module\self_def_message.o: ../Core/Inc/usart.h
 butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\self_def_message.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\self_def_message.o: ../Modules/KEY/KEY.h
+butter-debug-module\self_def_message.o: ../Core/Inc/crc.h

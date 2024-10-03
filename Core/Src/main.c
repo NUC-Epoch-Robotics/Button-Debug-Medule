@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "crc.h"
 #include "dma.h"
 #include "i2c.h"
 #include "spi.h"
@@ -38,14 +39,15 @@
 #include "multi_button.h"
 #include "Buzzer.h"
 #include "ring_buffer.h"
+#include "button_motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 extern uint8_t DataBuff[BUF_SIZE]; 
 extern DMA_HandleTypeDef hdma_usart1_rx;
-extern uint8_t KEY_flag;
-extern struct Button KEY_1;
+//extern uint8_t KEY_flag;
+//extern struct Button KEY_1;
 extern uint8_t ringbuff[RING_BUFF_SIZE];
 extern stRingBuff Ring_Buff;
 /* USER CODE END PTD */
@@ -116,33 +118,42 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
+  MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-//	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-//	HAL_TIM_Base_Start(&htim2);  //启动定时器
-//  KEY_Init();
-//  OLED_Init();
-//  Buzzer_on();
- RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
+   Buttonmotorinit();
+ 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-
 	uint8_t Data1[1];
 	Data1[0]=0x11;
 	FrameInstance frame1;
   frameInstance_init(&frame1,usart_W_DATA);
-	frame_buf(&frame1,Data1,1);
-	Uart_Idle_rcDMA(&huart1, DataBuff);
+	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
+	HAL_TIM_Base_Start(&htim2);  //启动定时器
 
- printf("初始哈\r\n");
+  printf("初始哈\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+//			button_ticks();
+//	  	HAL_Delay(2);
+//		 if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET)
+//    {/*延时10ms，这期间不检测,防止按下瞬间的机械抖动产生高电平对检测造成干扰*/
+//      HAL_Delay(20);
+//      /*延时10ms后再检测，检测到低电平状态，说明按键稳定的按下了*/
+//      if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET)
+//      {/*执行按键按下的操作，反转LED电平状态，点亮LED灯*/
+//				    frame_buf(&frame1,Data1,1);			
+//		    	//HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
+//         // printf("freertos发送\r\n");
+//      }
+//      /*按键是按下状态，就卡在这不动，直到按键松开*/
+//      while(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET);
+				
 }
   /* USER CODE END 3 */
 }

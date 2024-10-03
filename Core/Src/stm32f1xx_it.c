@@ -25,6 +25,7 @@
 #include "self_def_massage.h"
 #include "multi_button.h"
 #include "button_motor.h"
+#include "KEY.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -260,8 +261,8 @@ void TIM2_IRQHandler(void)
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
- // button_ticks();
-
+ //button_ticks();
+  user_TIM2_IRQHandler();  //TIM2ÖÐ¶Ï
   /* USER CODE END TIM2_IRQn 1 */
 }
 

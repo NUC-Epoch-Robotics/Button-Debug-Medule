@@ -23,7 +23,7 @@ typedef struct
 extern DMA_HandleTypeDef hdma_usart1_rx;
 
 //串口初始化
-int bsp_usart_init(	USARTInstance* usart , UART_HandleTypeDef   *usart_handle,USART_TRANSFER_MODE  TRANSFER_MODE);
+void bsp_usart_init(	USARTInstance* usart , UART_HandleTypeDef   *usart_handle,USART_TRANSFER_MODE  TRANSFER_MODE);
               
 //基于HAL库usart发送函数封装
 void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode);

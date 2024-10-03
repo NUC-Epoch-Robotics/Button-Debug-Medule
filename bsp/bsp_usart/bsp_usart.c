@@ -15,17 +15,14 @@
  * huart	 	想要初始化的串口的句柄
  * huart_type	想要初始化的串口编号，BSP_USART
  * return		成功返回0，失败返回-1 */
-int bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, USART_TRANSFER_MODE TRANSFER_MODE)
+void  bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, USART_TRANSFER_MODE TRANSFER_MODE)
 {
-	if(usart->usart_handle!=NULL )
-	{
+	
 		usart->TRANSFER_MODE = TRANSFER_MODE;
 		usart->usart_handle = usart_handle;
 
 														
-		return 0;
-	 }
-	return -1;
+
 }                      
 /*
 *对usart进行底层封装

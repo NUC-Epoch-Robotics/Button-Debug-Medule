@@ -2,7 +2,7 @@
 #define __RING_BUFFER_H__
 #include"gpio.h"
 
-#define RING_BUFF_SIZE 50
+#define RING_BUFF_SIZE 200
 
 typedef struct ringBuff{
     unsigned int in;                             //–¥»ÎµƒŒª÷√
