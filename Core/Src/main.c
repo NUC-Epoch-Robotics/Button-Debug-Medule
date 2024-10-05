@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "crc.h"
 #include "dma.h"
 #include "i2c.h"
@@ -70,6 +71,7 @@ extern stRingBuff Ring_Buff;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -120,40 +122,27 @@ int main(void)
   MX_USB_PCD_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-   Buttonmotorinit();
- 
+   Buttonmotorinit();//初始化
+
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	uint8_t Data1[1];
-	Data1[0]=0x11;
-	FrameInstance frame1;
-  frameInstance_init(&frame1,usart_W_DATA);
-	HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-	HAL_TIM_Base_Start(&htim2);  //启动定时器
 
-  printf("初始哈\r\n");
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//			button_ticks();
-//	  	HAL_Delay(2);
-//		 if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET)
-//    {/*延时10ms，这期间不检测,防止按下瞬间的机械抖动产生高电平对检测造成干扰*/
-//      HAL_Delay(20);
-//      /*延时10ms后再检测，检测到低电平状态，说明按键稳定的按下了*/
-//      if(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET)
-//      {/*执行按键按下的操作，反转LED电平状态，点亮LED灯*/
-//				    frame_buf(&frame1,Data1,1);			
-//		    	//HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
-//         // printf("freertos发送\r\n");
-//      }
-//      /*按键是按下状态，就卡在这不动，直到按键松开*/
-//      while(HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) ==  GPIO_PIN_RESET);
-				
+
 }
   /* USER CODE END 3 */
 }

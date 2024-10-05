@@ -92,7 +92,7 @@ void frame_buf(FrameInstance* frame,uint8_t* Data,int len)
 	
   t=len+t;
 	//memcpy(&data_32, Data, 4);
-//	 crc=frame->crc_check(&data_32, t);//不注释会跑飞
+//	crc=frame->crc_check(&data_32, t);//不注释会跑飞
 	//printf("crc_send=%u\r\n",crc);
 //  Usart_SendBuf[t++] = (crc>> 24)& 0xFF;
 //	Usart_SendBuf[t++] = (crc>> 16)& 0xFF;

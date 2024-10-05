@@ -14,9 +14,9 @@
 *          3.连续2n+1次短按，且时间间隔小于 KEY_WAIT_DOUBLE_TIME，且最后一次KEY_WAIT_DOUBLE_TIME内无操作，
 *				响应为n次双击 和 一次单击事件
 ****************************************************************************************************/
-#define KEY_LONG_PRESS_TIME           50 // 20ms*50 = 1s  
+#define KEY_LONG_PRESS_TIME           60// 20ms*50 = 1s  
 #define KEY_LONG_SECOND_PRESS_TIME  50// 20ms*50 = 1s 
-#define KEY_WAIT_DOUBLE_TIME 25// 20ms*25 = 500   
+#define KEY_WAIT_DOUBLE_TIME 30// 20ms*25 = 500   
 #define KEY_PRESSED_LEVEL     0     //  按键按下是电平为低    
                                                     
 /**************************************************************************************************** 
@@ -76,8 +76,6 @@ static void KEY_GetAction(void)
 void KEY_ReadStateMachine(void)
 {
     KEY_GetAction();
-//			KeyCfg.KEY_Event = KEY_Event_Null;
-//	    KeyCfg.KEY_Count = 0;
 	switch(KeyCfg.KEY_Status)
 	{
 		
@@ -166,7 +164,7 @@ void KEY_ReadStateMachine(void)
 				KeyCfg.KEY_Event = KEY_Event_Null;
 				
 			}
-			else  if((KeyCfg.KEY_Action == KEY_Action_Press) && ( KeyCfg.KEY_Count < KEY_WAIT_DOUBLE_TIME))// 第一次短按,且还没到KEY_WAIT_DOUBLE_TIME 第二次被按下
+			else // if((KeyCfg.KEY_Action == KEY_Action_Press) && ( KeyCfg.KEY_Count < KEY_WAIT_DOUBLE_TIME))// 第一次短按,且还没到KEY_WAIT_DOUBLE_TIME 第二次被按下
 			{
 				KeyCfg.KEY_Count = 0;
 			//	KeyCfg.KEY_Count++;
@@ -199,27 +197,5 @@ void KEY_ReadStateMachine(void)
 	}
 }
 
-void user_TIM2_IRQHandler(void)   //TIM3中断
-{
-	KEY_ReadStateMachine();  //调用状态机
-			
-			if(KeyCfg.KEY_Event == KEY_Event_SingleClick)
-			{
-		//	HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
-				printf("111\r\n");//事件处理
-			}
-			else if(KeyCfg.KEY_Event == KEY_Event_DoubleClick)
-			{
-				printf("222\r\n");//事件处理
-			//HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-			}
 
-			else if(KeyCfg.KEY_Event == KEY_Event_LongPress)
-			{
-				printf("333\r\n");//事件处理
-			//	HAL_GPIO_TogglePin(LED3_GPIO_Port,LED3_Pin);
-			}
-			
-
-}
 
