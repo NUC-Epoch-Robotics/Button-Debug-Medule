@@ -1117,6 +1117,16 @@
               <FileType>5</FileType>
               <FilePath>..\Modules\self_def_massage\self_def_massage.h</FilePath>
             </File>
+            <File>
+              <FileName>multi_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\KEY\multi_button.c</FilePath>
+            </File>
+            <File>
+              <FileName>multi_button.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\KEY\multi_button.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
