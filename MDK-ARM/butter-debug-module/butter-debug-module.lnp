@@ -36,6 +36,7 @@
 "butter-debug-module\system_stm32f1xx.o"
 "butter-debug-module\button_motor.o"
 "butter-debug-module\key.o"
+"butter-debug-module\multi_button.o"
 "butter-debug-module\buzzer.o"
 "butter-debug-module\oled_iic_config.o"
 "butter-debug-module\oled_function.o"

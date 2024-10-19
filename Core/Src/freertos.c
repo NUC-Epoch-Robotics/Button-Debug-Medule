@@ -132,7 +132,7 @@ void MX_FREERTOS_Init(void) {
   OLED_taskHandle = osThreadCreate(osThread(OLED_task), NULL);
 
   /* definition and creation of Button_task */
-  osThreadDef(Button_task, button_task, osPriorityLow, 0, 128);
+  osThreadDef(Button_task, button_task, osPriorityBelowNormal, 0, 128);
   Button_taskHandle = osThreadCreate(osThread(Button_task), NULL);
 
   /* definition and creation of LED1_task */
