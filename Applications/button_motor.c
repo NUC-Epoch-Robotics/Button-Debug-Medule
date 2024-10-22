@@ -15,9 +15,8 @@
 #include "cmsis_os.h"
 #include "queue.h"
 #include "event_groups.h"
-
 /*************** freeRTOS任务与队列 ****************/
-extern osThreadId LED1_taskHandle;
+//extern osThreadId LED1_taskHandle;
 extern osThreadId LED2_taskHandle;
 extern osThreadId LED3_taskHandle;
 //extern osEventFlagsId_t EventKey1Handle;
@@ -123,6 +122,7 @@ void Buttonmotorinit()
 
 }
 
+
 //freeRTOS执行按键任务
 /***   执行按键任务  ***/
 void button_task()
@@ -142,7 +142,7 @@ void button_task()
 void buzzer_task()
 {	
 	  int i=0;
-	  osThreadSuspend(LED1_taskHandle);//单个任务挂起
+//	  osThreadSuspend(LED1_taskHandle);//单个任务挂起
 		osThreadSuspend(LED2_taskHandle);//单个任务挂起
 		osThreadSuspend(LED3_taskHandle);//单个任务挂起
 		while(1)
@@ -156,50 +156,52 @@ void buzzer_task()
 							case 1:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
-								osThreadResume(LED1_taskHandle);
+//								osThreadResume(LED1_taskHandle);
 							break;
 							case 2:
-								osThreadSuspend(LED1_taskHandle);//单个任务挂起
+//								osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 								osThreadResume(LED2_taskHandle);	
 							break;
 							case 3:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
-		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
+//		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
 								osThreadResume(LED3_taskHandle);
 							}
 						}
 		
 							vTaskDelay(20);
           }
-					
+				
 					}
 
-/***   执行OLED任务  ***/
-void oled_task()
-{
-		while(1)
-		{
-			
-	
-		vTaskDelay(2000);
-		}
-}
-/*   执行LED */
-void led1_task()
-{
-	//EventBits_t myEventBits_1=0;
-		while(1)
-		{
-		//	myEventBits_1=xEventGroupWaitBits(EventKey1Handle,Event_0,pdTRUE,pdTRUE,portMAX_DELAY);
-//			if(myEventBits_1 & Event_0)
-//			{
-			  HAL_GPIO_TogglePin (LED1_GPIO_Port,LED1_Pin);
-	 		  printf("电平反转1\r\n");
-	     	vTaskDelay(200);
-		   
-		}
-}
+///***   执行OLED任务  ***/
+//void oled_task()
+//{
+//		while(1)
+//		{
+//			
+
+//	
+//	
+//		vTaskDelay(2000);
+//		}
+//}
+///*   执行LED */
+//void led1_task()
+//{
+//	//EventBits_t myEventBits_1=0;
+//		while(1)
+//		{
+//		//	myEventBits_1=xEventGroupWaitBits(EventKey1Handle,Event_0,pdTRUE,pdTRUE,portMAX_DELAY);
+////			if(myEventBits_1 & Event_0)
+////			{
+//			  HAL_GPIO_TogglePin (LED1_GPIO_Port,LED1_Pin);
+//	 		  printf("电平反转1\r\n");
+//	     	vTaskDelay(200);
+//		   
+//		}
+//}
 		
 void led2_task()
 {

@@ -30,17 +30,20 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "self_def_massage.h"
 #include "stdio.h"
 #include "bsp_usart.h"
 #include "OLED_IIC_Config.h"
 #include "OLED_Function.h"
 #include "OLED_Front.h"
+#include "Buzzer.h"
 #include "KEY.h"
 #include "multi_button.h"
-#include "Buzzer.h"
+#include "self_def_massage.h"
 #include "ring_buffer.h"
+#include "elog.h"
+#include "elog_cfg.h"
 #include "button_motor.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,10 +59,28 @@ extern stRingBuff Ring_Buff;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 //int timer_ticks=0;
+
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+PUTCHAR_PROTOTYPE
+{
+    /*	进入临界区	*/
+    taskENTER_CRITICAL();
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+    /*	退出临界区	*/
+    taskEXIT_CRITICAL();
+    return ch;
+}
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+
+
 
 /* USER CODE END PM */
 
@@ -122,7 +143,13 @@ int main(void)
   MX_USB_PCD_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-   Buttonmotorinit();//初始化
+      Buttonmotorinit();//初始化
+      easylogger_init();
+	 log_a("Hello 输出a!");
+   log_e("Hello 输出e!");
+   log_w("输出W");
+   log_i("初始化成功");
+   log_d("输出D");
 
   /* USER CODE END 2 */
 
@@ -136,14 +163,14 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
+  
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
-}
+  }
   /* USER CODE END 3 */
 }
 

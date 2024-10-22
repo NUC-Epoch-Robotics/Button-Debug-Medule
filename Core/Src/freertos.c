@@ -49,9 +49,7 @@
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId Buzzer_taskHandle;
-osThreadId OLED_taskHandle;
 osThreadId Button_taskHandle;
-osThreadId LED1_taskHandle;
 osThreadId LED2_taskHandle;
 osThreadId LED3_taskHandle;
 osMessageQId queuekey1Handle;
@@ -63,9 +61,7 @@ osMessageQId queuekey1Handle;
 
 void StartDefaultTask(void const * argument);
 extern void buzzer_task(void const * argument);
-extern void oled_task(void const * argument);
 extern void button_task(void const * argument);
-extern void led1_task(void const * argument);
 extern void led2_task(void const * argument);
 extern void led3_task(void const * argument);
 
@@ -127,17 +123,9 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Buzzer_task, buzzer_task, osPriorityLow, 0, 128);
   Buzzer_taskHandle = osThreadCreate(osThread(Buzzer_task), NULL);
 
-  /* definition and creation of OLED_task */
-  osThreadDef(OLED_task, oled_task, osPriorityLow, 0, 128);
-  OLED_taskHandle = osThreadCreate(osThread(OLED_task), NULL);
-
   /* definition and creation of Button_task */
   osThreadDef(Button_task, button_task, osPriorityBelowNormal, 0, 128);
   Button_taskHandle = osThreadCreate(osThread(Button_task), NULL);
-
-  /* definition and creation of LED1_task */
-  osThreadDef(LED1_task, led1_task, osPriorityLow, 0, 128);
-  LED1_taskHandle = osThreadCreate(osThread(LED1_task), NULL);
 
   /* definition and creation of LED2_task */
   osThreadDef(LED2_task, led2_task, osPriorityLow, 0, 128);
