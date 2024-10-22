@@ -14,7 +14,11 @@
 #include "ring_buffer.h"
 #include "cmsis_os.h"
 #include "queue.h"
+#include "elog.h"
+#include "elog_cfg.h"
 #include "event_groups.h"
+
+ #define LOG_TAG         "Button_mottor"
 /*************** freeRTOS任务与队列 ****************/
 //extern osThreadId LED1_taskHandle;
 extern osThreadId LED2_taskHandle;
@@ -92,7 +96,8 @@ void KEY_Init(void)
 //放初始化的代码   之后在freertos中调用完成初始化
 void Buttonmotorinit()
 {
-  RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
+
+ 
 	Data1[0]=0x11;
 	Data1[1]=0x12;
 	Data1[2]=0x13;
@@ -111,15 +116,20 @@ void Buttonmotorinit()
 	Data1[15]=0x61;
 	Data1[16]=0x62;
 	Data1[17]=0x63;
+
+//  HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
+//	HAL_TIM_Base_Start(&htim2);  //启动定时器
+   log_a("Hello easylogger!");
+   log_e("Hello easylogger!");
+   log_w("Hello easylogger!");
+   log_i("Hello easylogger!");
+   log_d("Hello easylogger!");
+	 
+  frameInstance_init(&frame1,usart_W_DATA);
+  RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
 	KEY_Init();
   OLED_Init();
   Buzzer_on();
-  HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-	HAL_TIM_Base_Start(&htim2);  //启动定时器
-     printf("初始哈\r\n");
-  frameInstance_init(&frame1,usart_W_DATA);
-
-
 }
 
 
@@ -143,8 +153,8 @@ void buzzer_task()
 {	
 	  int i=0;
 //	  osThreadSuspend(LED1_taskHandle);//单个任务挂起
-		osThreadSuspend(LED2_taskHandle);//单个任务挂起
-		osThreadSuspend(LED3_taskHandle);//单个任务挂起
+	osThreadSuspend(LED2_taskHandle);//单个任务挂起
+	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 		while(1)
 		{
 			BaseType_t res;
@@ -152,21 +162,24 @@ void buzzer_task()
 			    if ( res== pdPASS) {
             switch(i)
 						{
-					
+					 log_i("buzzer_task");
 							case 1:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 //								osThreadResume(LED1_taskHandle);
+//							log_i("任务1恢复，其余任务挂起");
 							break;
 							case 2:
 //								osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 								osThreadResume(LED2_taskHandle);	
+//								log_i("任务1恢复，其余任务挂起");
 							break;
 							case 3:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 //		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
 								osThreadResume(LED3_taskHandle);
+//								log_i("任务1恢复，其余任务挂起");
 							}
 						}
 		
@@ -208,9 +221,9 @@ void led2_task()
 	
 		while(1)
 		{
-
+   log_i("led2_run");
 		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-		printf("电平反转2\r\n");
+		
 		vTaskDelay(200);
 		
 			}
@@ -220,7 +233,7 @@ void led3_task()
 		while(1)
 		{
 	  HAL_GPIO_TogglePin (LED3_GPIO_Port,LED3_Pin);
-	  printf("电平反转3\r\n");
+	 log_i("led3_run");
 		vTaskDelay(200);
 			}
 }
@@ -239,7 +252,7 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=1;
-	//	printf("电平反转11\r\n");
+		log_i("电平反转11");
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
 	 }
@@ -247,7 +260,7 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=2;
-  //  printf("电平反转22\r\n");
+  log_i("电平反转22");
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
 	 }
@@ -255,7 +268,7 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=3;
-		printf("电平反转33\r\n");
+		log_i("电平反转33");
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
  	 }
@@ -314,7 +327,7 @@ void button1_callback(void *button)
 	switch (btn_event_val)
 	{
 	case SINGLE_CLICK:
-			//printf("电平反转11\r\n");
+			log_i("单击");
   frame_buf(&frame1,&Data1[0],1);
 	////		xEventGroupSetBitsFromISR(EventKey1Handle ,Event_0 ,NULL);
 
@@ -324,13 +337,13 @@ void button1_callback(void *button)
 	case DOUBLE_CLICK:
   frame_buf(&frame1,&Data1[1],1);
 	
-	//printf("电平反转22\r\n");
+	log_i("双击");
   	break;
 	
 	case LONG_PRESS_START:
   frame_buf(&frame1,&Data1[2],1);
 
-	//printf("电平反转33\r\n");
+	log_i("长按");
   	break;
 	
 	}

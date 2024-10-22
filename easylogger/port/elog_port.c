@@ -108,19 +108,19 @@ void elog_port_output_unlock(void) {
 const char *elog_port_get_time(void) {
     
     /* add your code here */
-    static char cur_system_time[16] = { 0 };
+   static char cur_system_time[16] = { 0 };
 
 #if (INCLUDE_xTaskGetSchedulerState  == 1 )
     if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
     {
 #endif
         TickType_t tick = xTaskGetTickCount();
-        snprintf(cur_system_time, 16, "time==%d.%.3d  ", (tick / configTICK_RATE_HZ), tick % configTICK_RATE_HZ);
+        snprintf(cur_system_time, 16, "%d.%.3d", (tick / configTICK_RATE_HZ), tick % configTICK_RATE_HZ);
+			 
 #if (INCLUDE_xTaskGetSchedulerState  == 1 )
     }
-#endif 
-
-   return cur_system_time;
+#endif
+	 return cur_system_time;
 
 }
 
@@ -138,7 +138,7 @@ const char *elog_port_get_p_info(void) {
 /**
  * get current thread name interface
  *
- * @return current thread name
+ * @return 任务名称
  */
 const char *elog_port_get_t_info(void) {
     
@@ -155,17 +155,42 @@ const char *elog_port_get_t_info(void) {
     return "";
 
 }
+/*******************************************************************************
+* Function Name  : static_set_output_log_format
+* Description    : 静态设置日志打印格式
+* Input          : None
+* Output         : None
+* Return         : None
+* example        ; log_a("Hello EasyLogger!");		//断言
+				   log_e("Hello EasyLogger!");		//错误
+				   log_w("Hello EasyLogger!");		//警告
+				   log_i("Hello EasyLogger!");		//信息
+				   log_d("Hello EasyLogger!");		//调试
+				   log_v("Hello EasyLogger!");		//详细
+*******************************************************************************/
 void easylogger_init(void)
 {
     /* init Easylogger */
 	elog_init();
 
 	/* set EasyLogger log format */
+   /* 断言：输出所有内容 */
     elog_set_fmt(ELOG_LVL_ASSERT, ELOG_FMT_ALL);
-	elog_set_fmt(ELOG_LVL_ERROR, ELOG_FMT_LVL | ELOG_FMT_TIME | ELOG_FMT_T_INFO);
-	elog_set_fmt(ELOG_LVL_WARN, ELOG_FMT_LVL | ELOG_FMT_T_INFO);
-	elog_set_fmt(ELOG_LVL_INFO,ELOG_FMT_LVL | ELOG_FMT_TIME | ELOG_FMT_T_INFO);// ELOG_FMT_LVL);
-	elog_set_fmt(ELOG_LVL_DEBUG, ELOG_FMT_ALL & ~ELOG_FMT_FUNC);
+
+    /* 错误：输出日志级别、日志标签、日志时间和日志线程信息 */
+    elog_set_fmt(ELOG_LVL_ERROR, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME| ELOG_FMT_T_INFO);
+
+    /* 警告：输出日志级别、日志标签、日志时间和日志线程信息 */
+    elog_set_fmt(ELOG_LVL_WARN, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME | ELOG_FMT_T_INFO);
+
+    /* 信息：输出日志级别、日志标签、日志时间和日志线程信息 */
+    elog_set_fmt(ELOG_LVL_INFO, ELOG_FMT_LVL | ELOG_FMT_TAG | ELOG_FMT_TIME | ELOG_FMT_T_INFO);
+ 
+    /* 调试：输出除了函数名与进程信息之外的所有内容 */
+    elog_set_fmt(ELOG_LVL_DEBUG, ELOG_FMT_ALL & ~(ELOG_FMT_FUNC  | ELOG_FMT_T_INFO));
+
+    /* 详细：输出所有内容 */
+    elog_set_fmt(ELOG_LVL_VERBOSE, ELOG_FMT_ALL);
 
 	/*Eenbale color*/
 	elog_set_text_color_enabled(true);

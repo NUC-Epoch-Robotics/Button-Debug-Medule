@@ -62,3 +62,6 @@ butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/i
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+butter-debug-module\button_motor.o: ../easylogger/inc/elog.h
+butter-debug-module\button_motor.o: ../easylogger/inc/elog_cfg.h
+butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h

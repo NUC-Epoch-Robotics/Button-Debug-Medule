@@ -30,7 +30,7 @@ void Buzzer_off(void)
 void Buzzer_on(void)
 {
 	Buzzer_SetFreq(2000);//设置自动重装载值为2000 ARR寄存器的值为1000 占空比为50%
-	HAL_Delay(1000);
+
 	Buzzer_off();
 }
 

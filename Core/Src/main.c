@@ -45,9 +45,10 @@
 #include "button_motor.h"
 
 /* USER CODE END Includes */
-
+ #define LOG_TAG         "mian"
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+//#define LOG_TAG  "main"
 extern uint8_t DataBuff[BUF_SIZE]; 
 extern DMA_HandleTypeDef hdma_usart1_rx;
 //extern uint8_t KEY_flag;
@@ -143,13 +144,14 @@ int main(void)
   MX_USB_PCD_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-      Buttonmotorinit();//初始化
-      easylogger_init();
-	 log_a("Hello 输出a!");
-   log_e("Hello 输出e!");
-   log_w("输出W");
-   log_i("初始化成功");
-   log_d("输出D");
+	  easylogger_init();
+   
+   log_a("Hello easylogger!");
+   log_e("Hello easylogger!");
+   log_w("Hello easylogger!");
+   log_i("Hello easylogger!");
+   log_d("Hello easylogger!");
+ Buttonmotorinit();//初始化
 
   /* USER CODE END 2 */
 

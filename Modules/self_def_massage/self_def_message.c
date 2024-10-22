@@ -65,7 +65,7 @@ void frameInstance_init(FrameInstance* frame,FrameCommand command)
 	frame->frame_end = usart_frame_end;
 	//frame->crc_check=CRC16_Check;
 	Uart_Idle_rcDMA(Uart_frame.usart_handle ,DataBuff);
- // printf("123\r\n");
+
 	UART_Receive_IT_enable(&Uart_frame ,UART_IT_IDLE);//启用串口空闲中断	
 	
 }
