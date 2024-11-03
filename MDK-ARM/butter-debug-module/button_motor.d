@@ -33,9 +33,7 @@ butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
-butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
-butter-debug-module\button_motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
 butter-debug-module\button_motor.o: ../Core/Inc/FreeRTOSConfig.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
@@ -54,7 +52,6 @@ butter-debug-module\button_motor.o: ../Modules/OLED/OLED_Function.h
 butter-debug-module\button_motor.o: ../Modules/OLED/OLED_Front.h
 butter-debug-module\button_motor.o: ../Modules/Buzzer/Buzzer.h
 butter-debug-module\button_motor.o: ../Core/Inc/tim.h
-butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\button_motor.o: ../Core/Inc/usart.h
 butter-debug-module\button_motor.o: ../Modules/Ring_buffer/ring_buffer.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
@@ -65,3 +62,6 @@ butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/i
 butter-debug-module\button_motor.o: ../easylogger/inc/elog.h
 butter-debug-module\button_motor.o: ../easylogger/inc/elog_cfg.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+butter-debug-module\button_motor.o: ../letter-shell/demo/stm32-freertos/shell_port.h
+butter-debug-module\button_motor.o: ../letter-shell/src/shell.h
+butter-debug-module\button_motor.o: ../letter-shell/src/shell_cfg.h

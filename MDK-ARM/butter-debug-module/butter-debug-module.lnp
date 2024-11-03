@@ -9,7 +9,6 @@
 "butter-debug-module\spi.o"
 "butter-debug-module\tim.o"
 "butter-debug-module\usart.o"
-"butter-debug-module\usb.o"
 "butter-debug-module\stm32f1xx_it.o"
 "butter-debug-module\stm32f1xx_hal_msp.o"
 "butter-debug-module\stm32f1xx_hal_timebase_tim.o"
@@ -30,9 +29,6 @@
 "butter-debug-module\stm32f1xx_hal_tim.o"
 "butter-debug-module\stm32f1xx_hal_tim_ex.o"
 "butter-debug-module\stm32f1xx_hal_uart.o"
-"butter-debug-module\stm32f1xx_hal_pcd.o"
-"butter-debug-module\stm32f1xx_hal_pcd_ex.o"
-"butter-debug-module\stm32f1xx_ll_usb.o"
 "butter-debug-module\system_stm32f1xx.o"
 "butter-debug-module\button_motor.o"
 "butter-debug-module\key.o"
@@ -58,7 +54,12 @@
 "butter-debug-module\elog.o"
 "butter-debug-module\elog_utils.o"
 "butter-debug-module\elog_port.o"
+"butter-debug-module\shell.o"
+"butter-debug-module\shell_cmd_list.o"
+"butter-debug-module\shell_ext.o"
+"butter-debug-module\shell_port.o"
+"butter-debug-module\shell_companion.o"
 --library_type=microlib --strict --scatter "butter-debug-module\butter-debug-module.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--keep shellCommand* --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "butter-debug-module.map" -o butter-debug-module\butter-debug-module.axf

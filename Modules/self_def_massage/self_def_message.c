@@ -28,6 +28,8 @@
 /* Private  define ------------------------------------------------------------*/
 
 
+
+
 /* Private  macro -------------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_usart1_rx;
 /* Private  variables ---------------------------------------------------------*/
@@ -44,6 +46,7 @@ uint32_t CRC16_Check( uint32_t *data,uint32_t len);
   * @param 
   * @param 
   * @retval 
+	
   */
 /*    发送数据参数    */
  uint8_t Usart_SendBuf[USART_PACKAGE_LEN];
@@ -64,10 +67,10 @@ void frameInstance_init(FrameInstance* frame,FrameCommand command)
 	frame->command     = command;
 	frame->frame_end = usart_frame_end;
 	//frame->crc_check=CRC16_Check;
-	Uart_Idle_rcDMA(Uart_frame.usart_handle ,DataBuff);
+
 
 	UART_Receive_IT_enable(&Uart_frame ,UART_IT_IDLE);//启用串口空闲中断	
-	
+		Uart_Idle_rcDMA(Uart_frame.usart_handle ,DataBuff);
 }
 
 
@@ -78,17 +81,17 @@ void frame_buf(FrameInstance* frame,uint8_t* Data,int len)
 //	uint32_t crc=0;
 //	uint32_t data_32=0;
 	memset(Usart_SendBuf,0,sizeof(Usart_SendBuf));
-	int i=0,t=0;
+	int t=0;
   Usart_SendBuf[t++] = frame->frame_hand1;
   Usart_SendBuf[t++] = frame->frame_hand2;
 	Usart_SendBuf[t++] = frame->frame_hand3;
   Usart_SendBuf[t++] = frame->command;
-	Usart_SendBuf[t++] = len;       
+	Usart_SendBuf[t++] = len;     
+  int i=0;
 	for( i=t;i<len+t;i++)
 	 {
 	 Usart_SendBuf[i] = Data[i-t]; 
 	 }
-	//  printf("11\r\n");
 	
   t=len+t;
 	//memcpy(&data_32, Data, 4);
@@ -105,8 +108,6 @@ void frame_buf(FrameInstance* frame,uint8_t* Data,int len)
 //  printf("Usart_SendBuf[%d]=%u\r\n",i,Usart_SendBuf[i]);
 //	 }
   UartSend(&Uart_frame, Usart_SendBuf,t,USART_TRANSFER_DMA ); //DMA传输
-
-
 }
 
 

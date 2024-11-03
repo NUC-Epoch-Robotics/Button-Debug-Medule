@@ -20,9 +20,6 @@ void  bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, US
 	
 		usart->TRANSFER_MODE = TRANSFER_MODE;
 		usart->usart_handle = usart_handle;
-
-														
-
 }                      
 /*
 *对usart进行底层封装

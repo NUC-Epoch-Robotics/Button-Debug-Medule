@@ -25,7 +25,6 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -42,10 +41,11 @@
 #include "ring_buffer.h"
 #include "elog.h"
 #include "elog_cfg.h"
+#include "shell_port.h"
 #include "button_motor.h"
 
 /* USER CODE END Includes */
- #define LOG_TAG         "mian"
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 //#define LOG_TAG  "main"
@@ -59,7 +59,8 @@ extern stRingBuff Ring_Buff;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//int timer_ticks=0;
+ #define LOG_TAG         "main"
+
 
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
@@ -70,11 +71,12 @@ PUTCHAR_PROTOTYPE
 {
     /*	进入临界区	*/
     taskENTER_CRITICAL();
-    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+    HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
     /*	退出临界区	*/
     taskEXIT_CRITICAL();
     return ch;
 }
+
 
 /* USER CODE END PD */
 
@@ -100,7 +102,22 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+//int varInt = 0;
+//SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), varInt, &varInt, test);
 
+//char str[] = "test string";
+//SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_STRING), varStr, str, test);
+
+
+//int func1(int argc, char *argv[])
+//{
+//    printf("%dparameter(s)\r\n", argc);
+//    for (char i = 1; i < argc; i++)
+//    {
+//        printf("%s\r\n", argv[i]);
+//    }
+//}
+//SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_MAIN), func1, func1, test);
 
 /* USER CODE END 0 */
 
@@ -141,18 +158,11 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
-  MX_USB_PCD_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-	  easylogger_init();
-   
-   log_a("Hello easylogger!");
-   log_e("Hello easylogger!");
-   log_w("Hello easylogger!");
-   log_i("Hello easylogger!");
-   log_d("Hello easylogger!");
- Buttonmotorinit();//初始化
-
+	
+   Buttonmotorinit();//初始化
+	
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
@@ -184,7 +194,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -211,12 +220,6 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

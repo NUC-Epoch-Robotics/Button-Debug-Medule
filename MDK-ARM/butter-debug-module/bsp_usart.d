@@ -33,8 +33,5 @@ butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_h
 butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
-butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
-butter-debug-module\bsp_usart.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
-butter-debug-module\bsp_usart.o: ../Core/Inc/usart.h
 butter-debug-module\bsp_usart.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+butter-debug-module\bsp_usart.o: ../Core/Inc/usart.h

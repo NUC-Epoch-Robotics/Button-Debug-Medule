@@ -17,10 +17,11 @@
 #include "elog.h"
 #include "elog_cfg.h"
 #include "event_groups.h"
+#include "shell_port.h"
 
- #define LOG_TAG         "Button_mottor"
+#define LOG_TAG         "Button_mottor"
 /*************** freeRTOS任务与队列 ****************/
-//extern osThreadId LED1_taskHandle;
+extern osThreadId LED1_taskHandle;
 extern osThreadId LED2_taskHandle;
 extern osThreadId LED3_taskHandle;
 //extern osEventFlagsId_t EventKey1Handle;
@@ -48,7 +49,7 @@ struct Button button3;
 struct Button button4;
 struct Button button5;
 struct Button button6;
-
+int t=0;
 
 void KEY_Init(void)
 {
@@ -97,7 +98,7 @@ void KEY_Init(void)
 void Buttonmotorinit()
 {
 
- 
+  RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
 	Data1[0]=0x11;
 	Data1[1]=0x12;
 	Data1[2]=0x13;
@@ -117,20 +118,19 @@ void Buttonmotorinit()
 	Data1[16]=0x62;
 	Data1[17]=0x63;
 
-//  HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-//	HAL_TIM_Base_Start(&htim2);  //启动定时器
-   log_a("Hello easylogger!");
-   log_e("Hello easylogger!");
-   log_w("Hello easylogger!");
-   log_i("Hello easylogger!");
-   log_d("Hello easylogger!");
-	 
-  frameInstance_init(&frame1,usart_W_DATA);
-  RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
-	KEY_Init();
+   
+
+ 	KEY_Init();
   OLED_Init();
   Buzzer_on();
+  HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
+	HAL_TIM_Base_Start(&htim2);  //启动定时器
+  frameInstance_init(&frame1,usart_W_DATA);
+  easylogger_init();
+	log_i("motor_init");
+	userShellInit();
 }
+
 
 
 //freeRTOS执行按键任务
@@ -142,9 +142,10 @@ void button_task()
 		while(1)
 		{
 		//执行任务
-			
+//			vTaskDelay(20);
 			button_ticks();
-			vTaskDelayUntil(&preTime,5);
+//			vTaskDelay(20);
+    vTaskDelayUntil(&preTime,5);
 			
 		}
 }
@@ -152,7 +153,7 @@ void button_task()
 void buzzer_task()
 {	
 	  int i=0;
-//	  osThreadSuspend(LED1_taskHandle);//单个任务挂起
+  osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 		while(1)
@@ -162,59 +163,50 @@ void buzzer_task()
 			    if ( res== pdPASS) {
             switch(i)
 						{
-					 log_i("buzzer_task");
+					//		log_i("buzzer_task");
 							case 1:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
-//								osThreadResume(LED1_taskHandle);
+								osThreadResume(LED1_taskHandle);
 //							log_i("任务1恢复，其余任务挂起");
+//							printf("任务1恢复，其余任务挂起\r\n");
+							
 							break;
 							case 2:
-//								osThreadSuspend(LED1_taskHandle);//单个任务挂起
+								osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 								osThreadResume(LED2_taskHandle);	
 //								log_i("任务1恢复，其余任务挂起");
 							break;
 							case 3:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
-//		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
+		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
 								osThreadResume(LED3_taskHandle);
 //								log_i("任务1恢复，其余任务挂起");
 							}
 						}
-		
+
 							vTaskDelay(20);
           }
 				
 					}
 
-///***   执行OLED任务  ***/
-//void oled_task()
-//{
-//		while(1)
-//		{
-//			
 
-//	
-//	
-//		vTaskDelay(2000);
-//		}
-//}
-///*   执行LED */
-//void led1_task()
-//{
-//	//EventBits_t myEventBits_1=0;
-//		while(1)
-//		{
-//		//	myEventBits_1=xEventGroupWaitBits(EventKey1Handle,Event_0,pdTRUE,pdTRUE,portMAX_DELAY);
-////			if(myEventBits_1 & Event_0)
-////			{
-//			  HAL_GPIO_TogglePin (LED1_GPIO_Port,LED1_Pin);
+/*   执行LED */
+void led1_task()
+{
+	//EventBits_t myEventBits_1=0;
+		while(1)
+		{
+		//	myEventBits_1=xEventGroupWaitBits(EventKey1Handle,Event_0,pdTRUE,pdTRUE,portMAX_DELAY);
+//			if(myEventBits_1 & Event_0)
+//			{
+			 log_i("led1_run");
+			  HAL_GPIO_TogglePin (LED1_GPIO_Port,LED1_Pin);
 //	 		  printf("电平反转1\r\n");
-//	     	vTaskDelay(200);
-//		   
-//		}
-//}
+	     	vTaskDelay(200);
+		}
+}
 		
 void led2_task()
 {
@@ -223,11 +215,11 @@ void led2_task()
 		{
    log_i("led2_run");
 		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-		
 		vTaskDelay(200);
-		
 			}
 }
+
+
 void led3_task()
 {
 		while(1)
@@ -252,7 +244,8 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=1;
-		log_i("电平反转11");
+
+		
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
 	 }
@@ -260,7 +253,7 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=2;
-  log_i("电平反转22");
+
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
 	 }
@@ -268,7 +261,7 @@ void User_rx_Callback(uint8_t data)
 	 {
 	  //代码
 		queue_flag=3;
-		log_i("电平反转33");
+
 		/* 写队列 */
 		xQueueSendFromISR(queuekey1Handle, &queue_flag, NULL);
  	 }
@@ -278,18 +271,28 @@ void User_rx_Callback(uint8_t data)
 /*主板任务多的话可使用commit发送不同的命令来操控更多的任务实现不同功能*/
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 {
+//	log_i("EventCallback");
+//	printf("1111\r\n");
+
 	uint8_t cnt =0;
-	uint8_t ring_data[RING_BUFF_SIZE];
+	uint8_t ring_data[RING_BUFF_SIZE];	
+//	log_i("Hello easylogger!");
 //	uint32_t data_32;
 //	uint32_t crc;
 //	int commit;//接收传来的指令      
-	memset(ring_data,0,sizeof(ring_data));
+	
 	
 	WriteRingBuffer(&Ring_Buff,DataBuff, DataBuff[4]+6);
+	memset(ring_data,0,sizeof(ring_data));
 	ReadRingBuffer(&Ring_Buff,ring_data , DataBuff[4]+6);   
-
+//	 for(int i=0;i<8;i++)
+//	 {
+//  printf("Usart_SendBuf[%d]=%u\r\n",i,ring_data[i]);
+//	 }
+	 
  if( huart->Instance == USART1)
    {   
+//		 log_i("222");
 				if(ring_data[0] == usart_frame_hand1&&
 					 ring_data[1] == usart_frame_hand2&& 
 					 ring_data[2] == usart_frame_hand1  )   //检测是否是包头  //DataBuff[%d]=	 
@@ -314,6 +317,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 			 } 
 	  } 
   }
+// log_i("1111");
 }
 
 
@@ -321,29 +325,24 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 void button1_callback(void *button)
 {
 	uint32_t btn_event_val;
-
+	
 	btn_event_val = get_button_event((struct Button *)button);
-
 	switch (btn_event_val)
 	{
 	case SINGLE_CLICK:
-			log_i("单击");
+//		log_i("11");
   frame_buf(&frame1,&Data1[0],1);
-	////		xEventGroupSetBitsFromISR(EventKey1Handle ,Event_0 ,NULL);
-
-	
+	////		xEventGroupSetBitsFromISR(EventKey1Handle ,Event_0 ,NULL);	
 	  break;
 	
 	case DOUBLE_CLICK:
-  frame_buf(&frame1,&Data1[1],1);
-	
-	log_i("双击");
+  frame_buf(&frame1,&Data1[1],1);	
+//	log_i("22");
   	break;
 	
 	case LONG_PRESS_START:
   frame_buf(&frame1,&Data1[2],1);
-
-	log_i("长按");
+//  	log_i("33");
   	break;
 	
 	}

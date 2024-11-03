@@ -31,9 +31,7 @@ butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sp
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
-butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
-butter-debug-module\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
+butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 butter-debug-module\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 butter-debug-module\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -54,9 +52,7 @@ butter-debug-module\main.o: ../Core/Inc/i2c.h
 butter-debug-module\main.o: ../Core/Inc/spi.h
 butter-debug-module\main.o: ../Core/Inc/tim.h
 butter-debug-module\main.o: ../Core/Inc/usart.h
-butter-debug-module\main.o: ../Core/Inc/usb.h
 butter-debug-module\main.o: ../Core/Inc/gpio.h
-butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\main.o: ../bsp/bsp_usart/bsp_usart.h
 butter-debug-module\main.o: ../Modules/OLED/OLED_IIC_Config.h
 butter-debug-module\main.o: ../Modules/OLED/OLED_Function.h
@@ -70,4 +66,7 @@ butter-debug-module\main.o: ../Modules/Ring_buffer/ring_buffer.h
 butter-debug-module\main.o: ../easylogger/inc/elog.h
 butter-debug-module\main.o: ../easylogger/inc/elog_cfg.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+butter-debug-module\main.o: ../letter-shell/demo/stm32-freertos/shell_port.h
+butter-debug-module\main.o: ../letter-shell/src/shell.h
+butter-debug-module\main.o: ../letter-shell/src/shell_cfg.h
 butter-debug-module\main.o: ../Applications/button_motor.h

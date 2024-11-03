@@ -52,6 +52,8 @@ osThreadId Buzzer_taskHandle;
 osThreadId Button_taskHandle;
 osThreadId LED2_taskHandle;
 osThreadId LED3_taskHandle;
+osThreadId LED1_taskHandle;
+osThreadId ShellTaskHandle;
 osMessageQId queuekey1Handle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -64,6 +66,8 @@ extern void buzzer_task(void const * argument);
 extern void button_task(void const * argument);
 extern void led2_task(void const * argument);
 extern void led3_task(void const * argument);
+extern void led1_task(void const * argument);
+extern void shellTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -116,11 +120,11 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityIdle, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of Buzzer_task */
-  osThreadDef(Buzzer_task, buzzer_task, osPriorityLow, 0, 128);
+  osThreadDef(Buzzer_task, buzzer_task, osPriorityBelowNormal, 0, 128);
   Buzzer_taskHandle = osThreadCreate(osThread(Buzzer_task), NULL);
 
   /* definition and creation of Button_task */
@@ -134,6 +138,14 @@ void MX_FREERTOS_Init(void) {
   /* definition and creation of LED3_task */
   osThreadDef(LED3_task, led3_task, osPriorityLow, 0, 128);
   LED3_taskHandle = osThreadCreate(osThread(LED3_task), NULL);
+
+  /* definition and creation of LED1_task */
+  osThreadDef(LED1_task, led1_task, osPriorityLow, 0, 128);
+  LED1_taskHandle = osThreadCreate(osThread(LED1_task), NULL);
+
+  /* definition and creation of ShellTask */
+  osThreadDef(ShellTask, shellTask, osPriorityLow, 0, 128);
+  ShellTaskHandle = osThreadCreate(osThread(ShellTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
