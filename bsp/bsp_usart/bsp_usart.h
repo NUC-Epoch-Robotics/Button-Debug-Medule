@@ -20,15 +20,32 @@ typedef struct
   USART_TRANSFER_MODE  TRANSFER_MODE;
 } USARTInstance;
 
-extern DMA_HandleTypeDef hdma_usart1_rx;
+extern DMA_HandleTypeDef hdma_usart2_rx;
 
-//串口初始化
+/***串口初始化***/
 void bsp_usart_init(USARTInstance* usart , UART_HandleTypeDef   *usart_handle,USART_TRANSFER_MODE  TRANSFER_MODE);
               
-//基于HAL库usart发送函数封装
+/*** 发送模式 ***/
 void UartSend(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode);
- void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode );
+
+/*** 接收模式 ***/
+void UartReceive(USARTInstance *usart, uint8_t *send_buf, uint16_t send_size,USART_TRANSFER_MODE mode );
+
+/*** 中断使能 ***/
 void UART_Receive_IT_enable( USARTInstance *usart,uint32_t InterruptDefinitions);
+/*
+*@param InterruptDefinitions对应类型
+* UART_IT_PE  奇偶校验错误中断
+* UART_IT_TXE  传输数据寄存器空中断
+* UART_IT_TC   传输完成中断
+* UART_IT_RXNE 接收  数据区不空中断
+* UART_IT_IDLE 空闲线检测中断
+*/
+
+
+
+
+/*** 空闲DMA接收 ***/
 void  Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff);
 #endif
 

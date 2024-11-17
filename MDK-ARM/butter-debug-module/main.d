@@ -61,12 +61,12 @@ butter-debug-module\main.o: ../Modules/Buzzer/Buzzer.h
 butter-debug-module\main.o: ../Modules/KEY/KEY.h
 butter-debug-module\main.o: ../Modules/KEY/multi_button.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-butter-debug-module\main.o: ../bsp/self_def_massage/self_def_massage.h
+butter-debug-module\main.o: ../Modules/self_def_massage/self_def_massage.h
 butter-debug-module\main.o: ../Modules/Ring_buffer/ring_buffer.h
 butter-debug-module\main.o: ../easylogger/inc/elog.h
 butter-debug-module\main.o: ../easylogger/inc/elog_cfg.h
 butter-debug-module\main.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
-butter-debug-module\main.o: ../letter-shell/demo/stm32-freertos/shell_port.h
-butter-debug-module\main.o: ../letter-shell/src/shell.h
-butter-debug-module\main.o: ../letter-shell/src/shell_cfg.h
+butter-debug-module\main.o: ../letter_shell/shell_port.h
+butter-debug-module\main.o: ../letter_shell/shell.h
+butter-debug-module\main.o: ../letter_shell/shell_cfg.h
 butter-debug-module\main.o: ../Applications/button_motor.h

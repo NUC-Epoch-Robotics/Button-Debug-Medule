@@ -43,7 +43,6 @@
 #include "elog_cfg.h"
 #include "shell_port.h"
 #include "button_motor.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,24 +58,7 @@ extern stRingBuff Ring_Buff;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- #define LOG_TAG         "main"
-
-
-#ifdef __GNUC__
-#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif
-PUTCHAR_PROTOTYPE
-{
-    /*	进入临界区	*/
-    taskENTER_CRITICAL();
-    HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
-    /*	退出临界区	*/
-    taskEXIT_CRITICAL();
-    return ch;
-}
-
+	#define LOG_TAG         "main"
 
 /* USER CODE END PD */
 
@@ -97,27 +79,29 @@ PUTCHAR_PROTOTYPE
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
+int fputc(int ch, FILE *f)
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xffff);
+  return ch;
+}
 
+int fgetc(FILE *f)
+{
+  uint8_t ch = 0;
+  HAL_UART_Receive(&huart1, &ch, 1, 0xffff);
+  return ch;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//int varInt = 0;
-//SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), varInt, &varInt, test);
+int varInt = 0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), varInt, &varInt, test);
 
-//char str[] = "test string";
-//SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_STRING), varStr, str, test);
+char str[] = "test string";
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_STRING), varStr, str, test);
 
 
-//int func1(int argc, char *argv[])
-//{
-//    printf("%dparameter(s)\r\n", argc);
-//    for (char i = 1; i < argc; i++)
-//    {
-//        printf("%s\r\n", argv[i]);
-//    }
-//}
-//SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_MAIN), func1, func1, test);
 
 /* USER CODE END 0 */
 
@@ -162,7 +146,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
    Buttonmotorinit();//初始化
-	
+
+ 
+
+
+
+ 
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

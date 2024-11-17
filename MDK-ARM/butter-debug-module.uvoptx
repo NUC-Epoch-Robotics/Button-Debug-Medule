@@ -145,30 +145,30 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U/ -O206 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP (ARM Core") -D00(1BA01477) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL010000 -FP0($$Device:STM32F103C8$Flash\STM32F10x_128.FLM)</Name>
+          <Name>-U49006500070000393333574E -O206 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("ARM CoreSight SW-DP (ARM Core") -D00(1BA01477) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC800 -FN1 -FF0STM32F10x_128.FLM -FS08000000 -FL010000 -FP0($$Device:STM32F103C8$Flash\STM32F10x_128.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint>
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>1882</LineNumber>
+          <LineNumber>216</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>134235652</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\letter-shell\src\shell.c</Filename>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\butter_debug_module\../Applications/button_motor.c\216</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>1889</LineNumber>
+          <LineNumber>214</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -177,7 +177,103 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\letter-shell\src\shell.c</Filename>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>207</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>209</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>206</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>208</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>6</Number>
+          <Type>0</Type>
+          <LineNumber>213</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>7</Number>
+          <Type>0</Type>
+          <LineNumber>215</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Applications\button_motor.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -202,6 +298,16 @@
           <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>shell</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>shell</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>SHELL_LOCK_TIMEOUT</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
@@ -785,8 +891,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\OLED\OLED_IIC_Config.c</PathWithFileName>
-      <FilenameWithoutPath>OLED_IIC_Config.c</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\Ring_buffer\ring_buffer.c</PathWithFileName>
+      <FilenameWithoutPath>ring_buffer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -797,8 +903,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\OLED\OLED_IIC_Config.h</PathWithFileName>
-      <FilenameWithoutPath>OLED_IIC_Config.h</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\Ring_buffer\ring_buffer.h</PathWithFileName>
+      <FilenameWithoutPath>ring_buffer.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -809,8 +915,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\OLED\OLED_Function.c</PathWithFileName>
-      <FilenameWithoutPath>OLED_Function.c</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\self_def_massage\self_def_message.c</PathWithFileName>
+      <FilenameWithoutPath>self_def_message.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -821,8 +927,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\OLED\OLED_Function.h</PathWithFileName>
-      <FilenameWithoutPath>OLED_Function.h</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\self_def_massage\self_def_massage.h</PathWithFileName>
+      <FilenameWithoutPath>self_def_massage.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -845,8 +951,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\Ring_buffer\ring_buffer.c</PathWithFileName>
-      <FilenameWithoutPath>ring_buffer.c</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED_Function.c</PathWithFileName>
+      <FilenameWithoutPath>OLED_Function.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -857,8 +963,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\Ring_buffer\ring_buffer.h</PathWithFileName>
-      <FilenameWithoutPath>ring_buffer.h</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED_Function.h</PathWithFileName>
+      <FilenameWithoutPath>OLED_Function.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -869,8 +975,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\self_def_massage\self_def_message.c</PathWithFileName>
-      <FilenameWithoutPath>self_def_message.c</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED_IIC_Config.c</PathWithFileName>
+      <FilenameWithoutPath>OLED_IIC_Config.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -881,8 +987,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Modules\self_def_massage\self_def_massage.h</PathWithFileName>
-      <FilenameWithoutPath>self_def_massage.h</FilenameWithoutPath>
+      <PathWithFileName>..\Modules\OLED\OLED_IIC_Config.h</PathWithFileName>
+      <FilenameWithoutPath>OLED_IIC_Config.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -890,7 +996,7 @@
 
   <Group>
     <GroupName>Bsp</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1098,7 +1204,7 @@
 
   <Group>
     <GroupName>EasyLogger</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1165,8 +1271,8 @@
   </Group>
 
   <Group>
-    <GroupName>letter shell</GroupName>
-    <tvExp>1</tvExp>
+    <GroupName>shell</GroupName>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1177,7 +1283,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell.c</PathWithFileName>
+      <PathWithFileName>..\letter_shell\shell.c</PathWithFileName>
       <FilenameWithoutPath>shell.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -1189,7 +1295,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell.h</PathWithFileName>
+      <PathWithFileName>..\letter_shell\shell.h</PathWithFileName>
       <FilenameWithoutPath>shell.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -1197,12 +1303,12 @@
     <File>
       <GroupNumber>10</GroupNumber>
       <FileNumber>72</FileNumber>
-      <FileType>1</FileType>
+      <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell_cmd_list.c</PathWithFileName>
-      <FilenameWithoutPath>shell_cmd_list.c</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_cfg.h</PathWithFileName>
+      <FilenameWithoutPath>shell_cfg.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1213,20 +1319,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell_ext.c</PathWithFileName>
-      <FilenameWithoutPath>shell_ext.c</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_cmd_list.c</PathWithFileName>
+      <FilenameWithoutPath>shell_cmd_list.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>10</GroupNumber>
       <FileNumber>74</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell_ext.h</PathWithFileName>
-      <FilenameWithoutPath>shell_ext.h</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_companion.c</PathWithFileName>
+      <FilenameWithoutPath>shell_companion.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1237,8 +1343,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\demo\stm32-freertos\shell_port.c</PathWithFileName>
-      <FilenameWithoutPath>shell_port.c</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_ext.c</PathWithFileName>
+      <FilenameWithoutPath>shell_ext.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1249,20 +1355,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\demo\stm32-freertos\shell_port.h</PathWithFileName>
-      <FilenameWithoutPath>shell_port.h</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_ext.h</PathWithFileName>
+      <FilenameWithoutPath>shell_ext.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
       <GroupNumber>10</GroupNumber>
       <FileNumber>77</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell_cfg.h</PathWithFileName>
-      <FilenameWithoutPath>shell_cfg.h</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_port.c</PathWithFileName>
+      <FilenameWithoutPath>shell_port.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1273,20 +1379,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\demo\stm32-freertos\shell_cfg_user.h</PathWithFileName>
-      <FilenameWithoutPath>shell_cfg_user.h</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>10</GroupNumber>
-      <FileNumber>79</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\letter-shell\src\shell_companion.c</PathWithFileName>
-      <FilenameWithoutPath>shell_companion.c</FilenameWithoutPath>
+      <PathWithFileName>..\letter_shell\shell_port.h</PathWithFileName>
+      <FilenameWithoutPath>shell_port.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

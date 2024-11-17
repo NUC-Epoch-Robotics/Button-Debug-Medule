@@ -53,7 +53,7 @@ osThreadId Button_taskHandle;
 osThreadId LED2_taskHandle;
 osThreadId LED3_taskHandle;
 osThreadId LED1_taskHandle;
-osThreadId ShellTaskHandle;
+osThreadId OLED_TaskHandle;
 osMessageQId queuekey1Handle;
 
 /* Private function prototypes -----------------------------------------------*/
@@ -67,7 +67,7 @@ extern void button_task(void const * argument);
 extern void led2_task(void const * argument);
 extern void led3_task(void const * argument);
 extern void led1_task(void const * argument);
-extern void shellTask(void const * argument);
+extern void OLED_task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -120,32 +120,32 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityIdle, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of Buzzer_task */
-  osThreadDef(Buzzer_task, buzzer_task, osPriorityBelowNormal, 0, 128);
+  osThreadDef(Buzzer_task, buzzer_task, osPriorityNormal, 0, 128);
   Buzzer_taskHandle = osThreadCreate(osThread(Buzzer_task), NULL);
 
   /* definition and creation of Button_task */
-  osThreadDef(Button_task, button_task, osPriorityBelowNormal, 0, 128);
+  osThreadDef(Button_task, button_task, osPriorityNormal, 0, 128);
   Button_taskHandle = osThreadCreate(osThread(Button_task), NULL);
 
   /* definition and creation of LED2_task */
-  osThreadDef(LED2_task, led2_task, osPriorityLow, 0, 128);
+  osThreadDef(LED2_task, led2_task, osPriorityNormal, 0, 128);
   LED2_taskHandle = osThreadCreate(osThread(LED2_task), NULL);
 
   /* definition and creation of LED3_task */
-  osThreadDef(LED3_task, led3_task, osPriorityLow, 0, 128);
+  osThreadDef(LED3_task, led3_task, osPriorityNormal, 0, 128);
   LED3_taskHandle = osThreadCreate(osThread(LED3_task), NULL);
 
   /* definition and creation of LED1_task */
-  osThreadDef(LED1_task, led1_task, osPriorityLow, 0, 128);
+  osThreadDef(LED1_task, led1_task, osPriorityNormal, 0, 128);
   LED1_taskHandle = osThreadCreate(osThread(LED1_task), NULL);
 
-  /* definition and creation of ShellTask */
-  osThreadDef(ShellTask, shellTask, osPriorityLow, 0, 128);
-  ShellTaskHandle = osThreadCreate(osThread(ShellTask), NULL);
+  /* definition and creation of OLED_Task */
+  osThreadDef(OLED_Task, OLED_task, osPriorityNormal, 0, 128);
+  OLED_TaskHandle = osThreadCreate(osThread(OLED_Task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

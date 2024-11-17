@@ -1,10 +1,10 @@
-butter-debug-module\shell.o: ..\letter-shell\src\shell.c
-butter-debug-module\shell.o: ..\letter-shell\src\shell.h
-butter-debug-module\shell.o: ..\letter-shell\src\shell_cfg.h
+butter-debug-module\shell.o: ..\letter_shell\shell.c
+butter-debug-module\shell.o: ..\letter_shell\shell.h
+butter-debug-module\shell.o: ..\letter_shell\shell_cfg.h
 butter-debug-module\shell.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
 butter-debug-module\shell.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 butter-debug-module\shell.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
-butter-debug-module\shell.o: ..\letter-shell\src\shell_ext.h
+butter-debug-module\shell.o: ..\letter_shell\shell_ext.h
 butter-debug-module\shell.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
 butter-debug-module\shell.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 butter-debug-module\shell.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h

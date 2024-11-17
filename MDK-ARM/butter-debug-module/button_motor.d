@@ -43,7 +43,7 @@ butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/p
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-butter-debug-module\button_motor.o: ../bsp/self_def_massage/self_def_massage.h
+butter-debug-module\button_motor.o: ../Modules/self_def_massage/self_def_massage.h
 butter-debug-module\button_motor.o: ../Modules/KEY/KEY.h
 butter-debug-module\button_motor.o: ../Modules/KEY/multi_button.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
@@ -62,6 +62,7 @@ butter-debug-module\button_motor.o: ../Middlewares/Third_Party/FreeRTOS/Source/i
 butter-debug-module\button_motor.o: ../easylogger/inc/elog.h
 butter-debug-module\button_motor.o: ../easylogger/inc/elog_cfg.h
 butter-debug-module\button_motor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
-butter-debug-module\button_motor.o: ../letter-shell/demo/stm32-freertos/shell_port.h
-butter-debug-module\button_motor.o: ../letter-shell/src/shell.h
-butter-debug-module\button_motor.o: ../letter-shell/src/shell_cfg.h
+butter-debug-module\button_motor.o: ../letter_shell/shell_port.h
+butter-debug-module\button_motor.o: ../letter_shell/shell.h
+butter-debug-module\button_motor.o: ../letter_shell/shell_cfg.h
+butter-debug-module\button_motor.o: ../Core/Inc/i2c.h

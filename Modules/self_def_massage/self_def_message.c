@@ -60,17 +60,15 @@ uint32_t CRC16_Check( uint32_t *data,uint32_t len);
 /*初始化数据帧，配置所需要的发送命令，发送长度*/
 void frameInstance_init(FrameInstance* frame,FrameCommand command)
 { 
-  bsp_usart_init(&Uart_frame,&huart1,USART_TRANSFER_DMA);
+  bsp_usart_init(&Uart_frame,&huart2,USART_TRANSFER_DMA);
 	frame->frame_hand1 = usart_frame1_hand;
 	frame->frame_hand2 = usart_frame2_hand;
 	frame->frame_hand3 = usart_frame1_hand;
 	frame->command     = command;
 	frame->frame_end = usart_frame_end;
 	//frame->crc_check=CRC16_Check;
-
-
 	UART_Receive_IT_enable(&Uart_frame ,UART_IT_IDLE);//启用串口空闲中断	
-		Uart_Idle_rcDMA(Uart_frame.usart_handle ,DataBuff);
+	Uart_Idle_rcDMA(Uart_frame.usart_handle ,DataBuff);
 }
 
 

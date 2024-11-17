@@ -79,8 +79,8 @@ void  bsp_usart_init(	USARTInstance* usart, UART_HandleTypeDef* usart_handle, US
 /* 不定长接收 在DMA模式下接收一定数量的数据，直到收到预期数量的数据或发生空闲事件 */
 void  Uart_Idle_rcDMA(UART_HandleTypeDef *huart,uint8_t* DataBuff)
 {
- HAL_UARTEx_ReceiveToIdle_DMA(&huart1,DataBuff,BUF_SIZE);//BUF_SIZE 此处填写一次接收的最大数据长度
- __HAL_DMA_DISABLE_IT(&hdma_usart1_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
+ HAL_UARTEx_ReceiveToIdle_DMA(&huart2,DataBuff,BUF_SIZE);//BUF_SIZE 此处填写一次接收的最大数据长度
+ __HAL_DMA_DISABLE_IT(&hdma_usart2_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
 }
 
 /*  开启串口接收中断  */

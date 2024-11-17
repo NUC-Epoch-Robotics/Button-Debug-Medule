@@ -12,9 +12,18 @@
 #include "OLED_IIC_Config.h"
 #include "i2c.h"
 #include "bsp_iic.h"
-unsigned char  ScreenBuffer[SCREEN_PAGE_NUM][SCREEN_COLUMN];//定义屏幕的存储空间
-
-
+unsigned char  ScreenBuffer[SCREEN_PAGE_NUM][SCREEN_COLUMN];//定义屏幕的存储空间.
+	extern I2C_HandleTypeDef hi2c1;
+	extern I2C_HandleTypeDef hi2c2;
+IIC_faction OLED_IIC;
+IICInstance iic_instance=
+{
+	  .bsp_iic_Handle    = &hi2c2,
+  	.BSP_IIC_SDA_GPIOX = IIC2_SDA_GPIO_Port,
+    .BSP_IIC_SDA_PIN   = IIC2_SDA_Pin,
+	  .BSP_IIC_SCL_GPIOX = IIC2_SCL_GPIO_Port,
+    .BSP_IIC_SCL_PIN   = IIC2_SCL_Pin,		
+}; 
 
 /**
 * @brief  向OLED寄存器地址写一个byte的数据
@@ -22,12 +31,9 @@ unsigned char  ScreenBuffer[SCREEN_PAGE_NUM][SCREEN_COLUMN];//定义屏幕的存储空间
 * @param  data：要写入的数据
 * @retval 无
 */
-IICInstance OLED_IIC;
 void I2C_WriteByte(uint8_t addr, uint8_t data)
 {
-	extern I2C_HandleTypeDef hi2c1;
-//	HAL_I2C_Mem_Write(&hi2c1, OLED_ADDRESS, addr, I2C_MEMADD_SIZE_8BIT, &data, 1, 8);
-	IICAccessMem( &OLED_IIC , OLED_ADDRESS, addr, &data,  1,I2C_MEMADD_SIZE_8BIT);
+  OLED_IIC.AccessMem(OLED_IIC.bsp_iic , OLED_ADDRESS, addr, I2C_MEMADD_SIZE_8BIT, &data, 1, 8,IIC_Write_Mem);	
 }
 
 /**
@@ -103,7 +109,7 @@ void OLED_CLS(void)//清屏
  */
 void OLED_Init(void)
 {
-	bsp_iic_init(	&OLED_IIC, &hi2c1,IIC_BLACK_MODE);
+	 bsp_iic_init(&OLED_IIC,&iic_instance,IIC_Send ,IIC_Receive , IIC_AccessMem);
 	WriteCmd(0xAE); //显示关闭
 	WriteCmd(0x20);	//设置内存寻址模式
 	WriteCmd(0x10);	//00,水平寻址模式;01,垂直寻址模式;10,页寻址模式(复位);11,无效

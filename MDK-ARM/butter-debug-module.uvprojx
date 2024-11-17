@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../bsp/bsp_spi;../Applications;../Modules;../bsp/bsp_iic;../bsp/bsp_usart;../bsp/self_def_massage;../Modules/Buzzer;../Modules/KEY;./DebugConfig;../Modules/self_def_massage;../Modules/Ring_buffer;../Modules/OLED;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../easylogger/inc;../easylogger/src;../letter-shell/src;../letter-shell/demo/stm32-freertos</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../bsp/bsp_spi;../Applications;../Modules;../bsp/bsp_iic;../bsp/bsp_usart;../bsp/self_def_massage;../Modules/Buzzer;../Modules/KEY;./DebugConfig;../Modules/self_def_massage;../Modules/Ring_buffer;../Modules/OLED;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../easylogger/inc;../easylogger/src;../letter_shell</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -859,31 +859,6 @@
               <FilePath>..\Modules\Buzzer\Buzzer.h</FilePath>
             </File>
             <File>
-              <FileName>OLED_IIC_Config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\OLED\OLED_IIC_Config.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_IIC_Config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Modules\OLED\OLED_IIC_Config.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Function.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\OLED\OLED_Function.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Function.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Modules\OLED\OLED_Function.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Front.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Modules\OLED\OLED_Front.h</FilePath>
-            </File>
-            <File>
               <FileName>ring_buffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Modules\Ring_buffer\ring_buffer.c</FilePath>
@@ -902,6 +877,31 @@
               <FileName>self_def_massage.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Modules\self_def_massage\self_def_massage.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Front.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_Front.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Function.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\OLED\OLED_Function.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Function.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_Function.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_IIC_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\OLED\OLED_IIC_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_IIC_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Modules\OLED\OLED_IIC_Config.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1605,57 +1605,52 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>letter shell</GroupName>
+          <GroupName>shell</GroupName>
           <Files>
             <File>
               <FileName>shell.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\letter-shell\src\shell.c</FilePath>
+              <FilePath>..\letter_shell\shell.c</FilePath>
             </File>
             <File>
               <FileName>shell.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\letter-shell\src\shell.h</FilePath>
-            </File>
-            <File>
-              <FileName>shell_cmd_list.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\letter-shell\src\shell_cmd_list.c</FilePath>
-            </File>
-            <File>
-              <FileName>shell_ext.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\letter-shell\src\shell_ext.c</FilePath>
-            </File>
-            <File>
-              <FileName>shell_ext.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\letter-shell\src\shell_ext.h</FilePath>
-            </File>
-            <File>
-              <FileName>shell_port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\letter-shell\demo\stm32-freertos\shell_port.c</FilePath>
-            </File>
-            <File>
-              <FileName>shell_port.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\letter-shell\demo\stm32-freertos\shell_port.h</FilePath>
+              <FilePath>..\letter_shell\shell.h</FilePath>
             </File>
             <File>
               <FileName>shell_cfg.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\letter-shell\src\shell_cfg.h</FilePath>
+              <FilePath>..\letter_shell\shell_cfg.h</FilePath>
             </File>
             <File>
-              <FileName>shell_cfg_user.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\letter-shell\demo\stm32-freertos\shell_cfg_user.h</FilePath>
+              <FileName>shell_cmd_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\letter_shell\shell_cmd_list.c</FilePath>
             </File>
             <File>
               <FileName>shell_companion.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\letter-shell\src\shell_companion.c</FilePath>
+              <FilePath>..\letter_shell\shell_companion.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_ext.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\letter_shell\shell_ext.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_ext.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\letter_shell\shell_ext.h</FilePath>
+            </File>
+            <File>
+              <FileName>shell_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\letter_shell\shell_port.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\letter_shell\shell_port.h</FilePath>
             </File>
           </Files>
         </Group>

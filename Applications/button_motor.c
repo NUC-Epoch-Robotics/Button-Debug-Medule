@@ -1,3 +1,7 @@
+/**
+*串口1串口打印
+*串口2进行板子之间发送数据
+*/
 #include "button_motor.h"
 #include "freertos.h"
 #include "task.h"
@@ -51,6 +55,15 @@ struct Button button5;
 struct Button button6;
 int t=0;
 
+/*******iic************/
+#define ADDR_24LCxx_Write 0xA0
+#define ADDR_24LCxx_Read 0xA1
+#define BufferSize 256
+uint8_t WriteBuffer=0;
+
+uint16_t i;
+#include "i2c.h"
+
 void KEY_Init(void)
 {
 
@@ -99,36 +112,31 @@ void Buttonmotorinit()
 {
 
   RingBufferinit(&Ring_Buff,ringbuff,RING_BUFF_SIZE );
-	Data1[0]=0x11;
+Data1[0]=0x11;
 	Data1[1]=0x12;
 	Data1[2]=0x13;
-	Data1[3]=0x21;
-	Data1[4]=0x22;
-	Data1[5]=0x23;
-	Data1[6]=0x31;
-	Data1[7]=0x32;
-	Data1[8]=0x33;
-	Data1[9]=0x41;
-	Data1[10]=0x42;
-	Data1[11]=0x43;
-	Data1[12]=0x51;
-	Data1[13]=0x52;
-	Data1[14]=0x53;
-	Data1[15]=0x61;
-	Data1[16]=0x62;
-	Data1[17]=0x63;
-
-   
-
+	Data1[3]=0x14;
+	Data1[4]=0x15;
+	Data1[5]=0x16;
+	Data1[6]=0x17;
+	Data1[7]=0x18;
+	Data1[8]=0x19;
+	Data1[9]=0x20;
+	Data1[10]=0x21;
+	Data1[11]=0x22;
+	Data1[12]=0x23;
+	Data1[13]=0x24;
+	Data1[14]=0x25;
+	Data1[15]=0x26;
+ 	Data1[16]=0x27;
+	Data1[17]=0x28;
+  
  	KEY_Init();
-  OLED_Init();
+  OLED_Init();	
   Buzzer_on();
-  HAL_TIM_Base_Start_IT(&htim2); //使能定时器中断
-	HAL_TIM_Base_Start(&htim2);  //启动定时器
   frameInstance_init(&frame1,usart_W_DATA);
   easylogger_init();
-	log_i("motor_init");
-	userShellInit();
+	ShellInit();
 }
 
 
@@ -139,13 +147,12 @@ void button_task()
 {
 	TickType_t preTime;
 	preTime = xTaskGetTickCount();
+	
 		while(1)
 		{
 		//执行任务
-//			vTaskDelay(20);
 			button_ticks();
-//			vTaskDelay(20);
-    vTaskDelayUntil(&preTime,5);
+			vTaskDelayUntil(&preTime,5);
 			
 		}
 }
@@ -153,6 +160,7 @@ void button_task()
 void buzzer_task()
 {	
 	  int i=0;
+
   osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	osThreadSuspend(LED3_taskHandle);//单个任务挂起
@@ -168,21 +176,19 @@ void buzzer_task()
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 								osThreadResume(LED1_taskHandle);
-//							log_i("任务1恢复，其余任务挂起");
-//							printf("任务1恢复，其余任务挂起\r\n");
-							
+							  log_i("任务1恢复，其余任务挂起");
 							break;
 							case 2:
 								osThreadSuspend(LED1_taskHandle);//单个任务挂起
 	            	osThreadSuspend(LED3_taskHandle);//单个任务挂起
 								osThreadResume(LED2_taskHandle);	
-//								log_i("任务1恢复，其余任务挂起");
+								log_i("任务1恢复，其余任务挂起");
 							break;
 							case 3:
 								osThreadSuspend(LED2_taskHandle);//单个任务挂起
 		            osThreadSuspend(LED1_taskHandle);//单个任务挂起
 								osThreadResume(LED3_taskHandle);
-//								log_i("任务1恢复，其余任务挂起");
+								log_i("任务1恢复，其余任务挂起");
 							}
 						}
 
@@ -191,20 +197,26 @@ void buzzer_task()
 				
 					}
 
+void OLED_task()
+{
+
+	while(1)
+		{
+	
+			vTaskDelay(200);
+		}
+}					
 
 /*   执行LED */
 void led1_task()
 {
-	//EventBits_t myEventBits_1=0;
+
 		while(1)
 		{
-		//	myEventBits_1=xEventGroupWaitBits(EventKey1Handle,Event_0,pdTRUE,pdTRUE,portMAX_DELAY);
-//			if(myEventBits_1 & Event_0)
-//			{
 			 log_i("led1_run");
 			  HAL_GPIO_TogglePin (LED1_GPIO_Port,LED1_Pin);
-//	 		  printf("电平反转1\r\n");
 	     	vTaskDelay(200);
+			
 		}
 }
 		
@@ -213,7 +225,9 @@ void led2_task()
 	
 		while(1)
 		{
-   log_i("led2_run");
+					unsigned char ch[]="rrrrrrr";
+	OLED_ShowStr(0, 16, (uint8_t *)ch, 1);
+//    log_i("led2_run");
 		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
 		vTaskDelay(200);
 			}
@@ -293,9 +307,9 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
  if( huart->Instance == USART1)
    {   
 //		 log_i("222");
-				if(ring_data[0] == usart_frame_hand1&&
-					 ring_data[1] == usart_frame_hand2&& 
-					 ring_data[2] == usart_frame_hand1  )   //检测是否是包头  //DataBuff[%d]=	 
+				if(ring_data[0] == usart_frame1_hand&&
+					 ring_data[1] == usart_frame2_hand&& 
+					 ring_data[2] == usart_frame1_hand  )   //检测是否是包头  //DataBuff[%d]=	 
 			 {  
 		  	//  commit= DataBuff[3];                 //接收发来的命令，用来执行不同的代码，现在没写以后补充
 			cnt = ring_data[4];
@@ -317,7 +331,6 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart,uint16_t Size)
 			 } 
 	  } 
   }
-// log_i("1111");
 }
 
 
@@ -465,6 +478,19 @@ void button6_callback(void *button)
 
 	}
 }
+
+
+void Set_PID(int p,int i,int d)
+{
+	int pp=0,ii=0,dd=0;
+	pp=p;
+	ii=i;
+	dd=d;
+	printf("p=%d, i=%d, d=%d\r\n",pp,ii,dd);
+
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC),setpid, Set_PID, setpid);
+
 
 
 

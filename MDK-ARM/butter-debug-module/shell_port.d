@@ -1,5 +1,5 @@
-butter-debug-module\shell_port.o: ..\letter-shell\demo\stm32-freertos\shell_port.c
-butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h
+butter-debug-module\shell_port.o: ..\letter_shell\shell_port.c
+butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 butter-debug-module\shell_port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
 butter-debug-module\shell_port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
 butter-debug-module\shell_port.o: ../Core/Inc/FreeRTOSConfig.h
@@ -10,8 +10,8 @@ butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/por
 butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-butter-debug-module\shell_port.o: ../letter-shell/src/shell.h
-butter-debug-module\shell_port.o: ../letter-shell/src/shell_cfg.h
+butter-debug-module\shell_port.o: ..\letter_shell\shell.h
+butter-debug-module\shell_port.o: ..\letter_shell\shell_cfg.h
 butter-debug-module\shell_port.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 butter-debug-module\shell_port.o: ../Core/Inc/stm32f1xx_hal_conf.h
 butter-debug-module\shell_port.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -44,9 +44,6 @@ butter-debug-module\shell_port.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_
 butter-debug-module\shell_port.o: ../Core/Inc/usart.h
 butter-debug-module\shell_port.o: ../Core/Inc/main.h
 butter-debug-module\shell_port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+butter-debug-module\shell_port.o: ..\letter_shell\shell_port.h
 butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 butter-debug-module\shell_port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
-butter-debug-module\shell_port.o: ..\letter-shell\demo\stm32-freertos\shell_port.h
-butter-debug-module\shell_port.o: ../easylogger/inc/elog.h
-butter-debug-module\shell_port.o: ../easylogger/inc/elog_cfg.h
-butter-debug-module\shell_port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
